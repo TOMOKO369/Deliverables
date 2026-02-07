@@ -14,7 +14,7 @@ window.deliverablesData = [
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/d8b4fe/ffffff?text=Sori+Site",
     "description": "コミュニティ「創理」の魅力を伝える紹介サイト。パステルカラーの優しいデザイン。",
-    "link": "#"
+    "link": "https://introductionlp.netlify.app/"
   },
   {
     "id": 5,
@@ -22,7 +22,7 @@ window.deliverablesData = [
     "category": "デザイン",
     "image": "https://placehold.co/600x400/86efac/ffffff?text=Portfolio",
     "description": "ミニマルで洗練されたデザイナー向けのポートフォリオテンプレート。",
-    "link": "#"
+    "link": "https://tomoko369.github.io/potogfilio/"
   },
   {
     "id": 6,
