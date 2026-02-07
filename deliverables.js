@@ -119,5 +119,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
     "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。",
     "link": "#"
+  },
+  {
+    "id": 18,
+    "title": "あなたの開運適正がわかる！九星気学",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/c084fc/ffffff?text=Fortune",
+    "description": "九星気学を用いて、あなたの開運適正を診断するWebサイト。",
+    "link": "https://tomoko369.github.io/fortunetelling/"
   }
 ];
