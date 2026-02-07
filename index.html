@@ -19,9 +19,15 @@
                         display: ['"Outfit"', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#2563eb',
-                        secondary: '#475569',
-                        accent: '#f59e0b',
+                        primary: '#f472b6', // Pastel Pink
+                        secondary: '#a78bfa', // Pastel Purple
+                        accent: '#fcd34d', // Pastel Yellow
+                        pastel: {
+                            bg: '#fff5f7',
+                            card: '#ffffff',
+                            text: '#475569',
+                            muted: '#94a3b8'
+                        }
                     }
                 }
             }
@@ -30,27 +36,42 @@
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #f8fafc;
+            background-color: #fff5f7;
+            /* Very light pink */
+            background-image: linear-gradient(to bottom right, #fff0f5, #fff5f7);
+            min-height: 100vh;
+            color: #475569;
         }
 
         .hero-pattern {
-            background-color: #ffffff;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-color: transparent;
+            background-image: radial-gradient(#fbcfe8 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
         .card {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #fce7f3;
+            /* Pink border */
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(249, 168, 212, 0.3), 0 10px 10px -5px rgba(249, 168, 212, 0.2);
+            border-color: #f472b6;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            box-shadow: 0 4px 14px 0 rgba(244, 114, 182, 0.39);
         }
 
         .admin-modal {
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
         }
 
         /* Custom Scrollbar */
@@ -59,37 +80,37 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #fff1f2;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
+            background: #fbcfe8;
+            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+            background: #f472b6;
         }
     </style>
 </head>
 
-<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="antialiased min-h-screen flex flex-col">
 
     <!-- Hero Section -->
-    <header class="hero-pattern relative overflow-hidden border-b border-slate-200">
+    <header class="hero-pattern relative overflow-hidden border-b border-pink-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
             <h1
-                class="font-display text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mb-6 tracking-tight animate-fade-in-down">
+                class="font-display text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-400 mb-6 tracking-tight animate-fade-in-down drop-shadow-sm">
                 My Deliverables
             </h1>
             <p class="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
-                アイデアを形に。技術とデザインで課題を解決する<br class="hidden md:inline">私の制作物コレクションです。
+                かわいいを形に。<br class="md:hidden">技術とデザインで彩る<br class="hidden md:inline">私の制作物コレクションです。
             </p>
         </div>
         <!-- Decorative elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-yellow-200/30 rounded-full blur-3xl"></div>
         </div>
     </header>
 
@@ -98,34 +119,33 @@
 
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
-            <!-- Dynamically populated or static -->
             <button
-                class="filter-btn active px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition"
+                class="filter-btn active px-5 py-2 rounded-full bg-pink-400 text-white font-medium shadow-md hover:bg-pink-500 transition"
                 data-filter="all">すべて</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="Webアプリ">Webアプリ</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="Webサイト">Webサイト</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="音声ツール">音声ツール</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="デザイン">デザイン</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="動画">動画</button>
             <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
                 data-filter="拡張機能">拡張機能</button>
         </div>
 
         <!-- Add Button (Admin Only) -->
         <div id="admin-controls" class="hidden mb-8 text-center">
             <button id="add-item-btn"
-                class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                class="inline-flex items-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
                 <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
             </button>
         </div>
@@ -137,10 +157,10 @@
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 mt-12 py-8 relative">
+    <footer class="bg-white/50 backdrop-blur-sm border-t border-pink-100 mt-12 py-8 relative">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 mb-4">&copy; 2026 My Deliverables Portfolio. All rights reserved.</p>
-            <button id="admin-login-btn" class="text-slate-300 hover:text-slate-500 transition-colors text-sm"
+            <p class="text-slate-400 mb-4 font-light">&copy; 2026 My Deliverables Portfolio. All rights reserved.</p>
+            <button id="admin-login-btn" class="text-slate-300 hover:text-pink-400 transition-colors text-sm"
                 title="管理者ログイン">
                 <i class="fas fa-lock"></i> 管理者用
             </button>
@@ -149,25 +169,25 @@
 
     <!-- Admin Modal -->
     <div id="admin-modal" class="fixed inset-0 admin-modal hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0"
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 border border-pink-100"
             id="modal-content">
-            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
-                <h3 class="text-lg font-bold text-slate-800" id="modal-title">成果物を追加</h3>
-                <button id="close-modal" class="text-slate-400 hover:text-slate-600"><i
+            <div class="bg-pink-50 px-6 py-4 border-b border-pink-100 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-slate-700" id="modal-title">成果物を追加</h3>
+                <button id="close-modal" class="text-slate-400 hover:text-pink-500"><i
                         class="fas fa-times"></i></button>
             </div>
             <div class="p-6 space-y-4">
                 <form id="add-item-form" class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">タイトル</label>
+                        <label class="block text-sm font-medium text-slate-600 mb-1">タイトル</label>
                         <input type="text" id="input-title"
-                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition"
                             placeholder="例: 新しいプロジェクト" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">カテゴリ</label>
+                        <label class="block text-sm font-medium text-slate-600 mb-1">カテゴリ</label>
                         <select id="input-category"
-                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
                             required>
                             <option value="Webアプリ">Webアプリ</option>
                             <option value="Webサイト">Webサイト</option>
@@ -178,37 +198,37 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">画像URL</label>
+                        <label class="block text-sm font-medium text-slate-600 mb-1">画像URL</label>
                         <input type="url" id="input-image"
-                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-                            placeholder="https://..." value="https://placehold.co/600x400/2563eb/ffffff?text=New+Item">
+                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
+                            placeholder="https://..." value="https://placehold.co/600x400/f472b6/ffffff?text=New+Item">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">リンクURL</label>
+                        <label class="block text-sm font-medium text-slate-600 mb-1">リンクURL</label>
                         <input type="url" id="input-link"
-                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
                             placeholder="https://..." required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">説明文</label>
+                        <label class="block text-sm font-medium text-slate-600 mb-1">説明文</label>
                         <textarea id="input-desc"
-                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-24 resize-none"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none h-24 resize-none"
                             placeholder="短い説明文を入力..." required></textarea>
                     </div>
                     <button type="submit"
-                        class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-md">
+                        class="w-full py-3 bg-pink-400 text-white font-bold rounded-lg hover:bg-pink-500 transition shadow-md shadow-pink-200">
                         リストに追加 & コード生成
                     </button>
                 </form>
 
                 <!-- Code Export Area -->
-                <div id="export-area" class="hidden mt-6 pt-6 border-t border-slate-200">
-                    <p class="text-sm text-green-600 font-bold mb-2"><i class="fas fa-check-circle"></i> 追加されました！以下のコードを
-                        deliverables.js に上書きしてください：</p>
+                <div id="export-area" class="hidden mt-6 pt-6 border-t border-slate-100">
+                    <p class="text-sm text-emerald-500 font-bold mb-2"><i class="fas fa-check-circle"></i>
+                        追加されました！以下のコードを deliverables.js に上書きしてください：</p>
                     <textarea id="export-code"
-                        class="w-full h-32 p-3 bg-slate-800 text-green-400 font-mono text-xs rounded-lg mb-2"
+                        class="w-full h-32 p-3 bg-slate-800 text-emerald-400 font-mono text-xs rounded-lg mb-2"
                         readonly></textarea>
-                    <button id="copy-code-btn" class="text-sm text-blue-600 hover:underline">クリップボードにコピー</button>
+                    <button id="copy-code-btn" class="text-sm text-pink-500 hover:underline">クリップボードにコピー</button>
                 </div>
             </div>
         </div>
@@ -241,22 +261,22 @@
 
                 data.forEach((item, index) => {
                     const card = document.createElement('div');
-                    card.className = 'card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col h-full opacity-0';
+                    card.className = 'card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col h-full opacity-0';
                     card.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
 
                     card.innerHTML = `
-                        <div class="relative h-48 overflow-hidden group bg-slate-100">
+                        <div class="relative h-48 overflow-hidden group bg-pink-50">
                             <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 left-4">
-                                <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm uppercase tracking-wide">
+                                <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-pink-500 shadow-sm uppercase tracking-wide">
                                     ${item.category}
                                 </span>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold text-slate-800 mb-2">${item.title}</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">${item.description}</p>
-                            <a href="${item.link}" target="_blank" class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-slate-50 text-slate-700 font-medium rounded-lg hover:bg-slate-100 hover:text-blue-600 transition-colors group">
+                            <h3 class="text-xl font-bold text-slate-700 mb-2">${item.title}</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4 flex-grow">${item.description}</p>
+                            <a href="${item.link}" target="_blank" class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-pink-50 text-pink-600 font-medium rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors group">
                                 詳細を見る <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
                             </a>
                         </div>
@@ -269,11 +289,11 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-blue-600', 'text-white');
-                        b.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-50', 'hover:text-blue-600');
+                        b.classList.remove('bg-pink-400', 'text-white');
+                        b.classList.add('bg-white', 'text-slate-600', 'hover:bg-pink-50', 'hover:text-pink-500');
                     });
-                    btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-50', 'hover:text-blue-600');
-                    btn.classList.add('bg-blue-600', 'text-white');
+                    btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-pink-50', 'hover:text-pink-500');
+                    btn.classList.add('bg-pink-400', 'text-white');
 
                     const category = btn.getAttribute('data-filter');
                     const filtered = category === 'all' ? currentData : currentData.filter(d => d.category === category);
@@ -306,7 +326,7 @@
                     adminControls.classList.remove('hidden');
                     adminLoginBtn.innerHTML = '<i class="fas fa-user-shield"></i> 管理者モード中';
                     adminLoginBtn.classList.remove('text-slate-300');
-                    adminLoginBtn.classList.add('text-green-600');
+                    adminLoginBtn.classList.add('text-emerald-500');
                     alert("管理者としてログインしました。成果物の追加が可能です。");
                 } else if (password !== null) {
                     alert("パスワードが違います。");
