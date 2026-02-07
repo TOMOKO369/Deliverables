@@ -246,6 +246,22 @@
         const ADMIN_PASSWORD = "admin"; // 簡易パスワード
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Discord Webhook Notification
+            const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
+
+            // Check if already visited in this session to avoid spam (optional, can be removed if every hit is needed)
+            if (!sessionStorage.getItem('visited')) {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: `📢 **My Deliverables** に新しいアクセスがありました！\n時間: ${new Date().toLocaleString('ja-JP')}`
+                    })
+                }).catch(err => console.error('Webhook Error:', err));
+
+                sessionStorage.setItem('visited', 'true');
+            }
+
             const gallery = document.getElementById('gallery');
             const filterBtns = document.querySelectorAll('.filter-btn');
 
