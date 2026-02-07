@@ -102,5 +102,29 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/67e8f9/ffffff?text=Color+Picker",
     "description": "Webページ上の色を簡単に取得・コピーできるデザイナー向け拡張機能。",
     "link": "#"
+  },
+  {
+    "id": 15,
+    "title": "西暦和暦変換",
+    "category": "拡張機能",
+    "image": "https://placehold.co/600x400/2dd4bf/ffffff?text=Date+Converter",
+    "description": "簡単に西暦と和暦を変換できる便利ツール。",
+    "link": "#"
+  },
+  {
+    "id": 16,
+    "title": "申し込みフォーム",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/34d399/ffffff?text=Form+App",
+    "description": "Googleフォームと連携し、自動返信やスプレッドシート管理を行う申し込みシステム。",
+    "link": "#"
+  },
+  {
+    "id": 17,
+    "title": "問い合わせフォーム",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
+    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。",
+    "link": "#"
   }
 ];
