@@ -18,7 +18,7 @@ window.deliverablesData = [
   {
     "id": 3,
     "title": "創理紹介サイト",
-    "category": "デザイン",
+    "category": "Webサイト",
     "image": "https://placehold.co/600x400/d8b4fe/ffffff?text=Sori+Site",
     "description": "コミュニティ「創理」の魅力を伝える紹介サイト。パステルカラーの優しいデザイン。",
     "link": "#"
@@ -62,6 +62,14 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/6ee7b7/ffffff?text=Teacher",
     "description": "個人レッスンや講師活動についての詳細情報を掲載したウェブサイト。",
     "link": "https://tomoko369.github.io/teacher/"
+  },
+  {
+    "id": 14,
+    "title": "もう怖くない仕事・質問依頼文作成図鑑",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/f9a8d4/ffffff?text=Question+Book",
+    "description": "仕事の依頼や質問文をスムーズに作成できるお助けツール。",
+    "link": "https://tomoko369.github.io/Howtoaskquestions/"
   },
   {
     "id": 10,
