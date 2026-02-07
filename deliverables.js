@@ -7,14 +7,7 @@ window.deliverablesData = [
     "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。",
     "link": "#"
   },
-  {
-    "id": 2,
-    "title": "あみだくじアプリ",
-    "category": "Webアプリ",
-    "image": "https://placehold.co/600x400/fda4af/ffffff?text=Amida+App",
-    "description": "手軽に作成できるあみだくじアプリ。飲み会の幹事決めに最適です。",
-    "link": "#"
-  },
+
   {
     "id": 3,
     "title": "創理紹介サイト",
