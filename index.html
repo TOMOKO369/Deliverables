@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
         rel="stylesheet">
     <script>
         tailwind.config = {
@@ -17,6 +17,7 @@
                     fontFamily: {
                         sans: ['"Noto Sans JP"', 'sans-serif'],
                         display: ['"Outfit"', 'sans-serif'],
+                        zen: ['"Zen Maru Gothic"', 'sans-serif'],
                     },
                     colors: {
                         primary: '#f472b6', // Pastel Pink
@@ -28,6 +29,9 @@
                             text: '#475569',
                             muted: '#94a3b8'
                         }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(244, 114, 182, 0.1), 0 2px 4px -1px rgba(244, 114, 182, 0.06)',
                     }
                 }
             }
@@ -115,54 +119,166 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
-            <button
-                class="filter-btn active px-5 py-2 rounded-full bg-pink-400 text-white font-medium shadow-md hover:bg-pink-500 transition"
-                data-filter="all">すべて</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="Webアプリ">Webアプリ</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="Webサイト">Webサイト</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="音声ツール">音声ツール</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="デザイン">デザイン</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="動画">動画</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="拡張機能">拡張機能</button>
-            <button
-                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
-                data-filter="GAS">GAS</button>
+        <div class="max-w-7xl mx-auto">
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
+                <button
+                    class="filter-btn active px-5 py-2 rounded-full bg-pink-400 text-white font-medium shadow-md hover:bg-pink-500 transition"
+                    data-filter="all">すべて</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="Webアプリ">Webアプリ</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="Webサイト">Webサイト</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="音声ツール">音声ツール</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="デザイン">デザイン</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="動画">動画</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="拡張機能">拡張機能</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-pink-100 hover:bg-pink-50 hover:text-pink-500 transition"
+                    data-filter="GAS">GAS</button>
+            </div>
+
+            <!-- Add Button (Admin Only) -->
+            <div id="admin-controls" class="hidden mb-8 text-center">
+                <button id="add-item-btn"
+                    class="inline-flex items-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                    <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards injected here -->
+            </div>
         </div>
 
-        <!-- Add Button (Admin Only) -->
-        <div id="admin-controls" class="hidden mb-8 text-center">
-            <button id="add-item-btn"
-                class="inline-flex items-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
-                <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
-            </button>
-        </div>
+        <!-- Self Introduction & Profile Section (Integrated) -->
+        <div class="mt-24 border-t border-pink-100 pt-16 max-w-5xl mx-auto font-zen">
 
-        <!-- Gallery Grid -->
-        <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards injected here -->
+            <div class="text-center mb-12">
+                <div
+                    class="inline-block p-1 rounded-full bg-gradient-to-tr from-pink-300 via-purple-300 to-yellow-200 mb-6">
+                    <div class="bg-white p-1 rounded-full">
+                        <img src="https://placehold.co/200x200/f472b6/ffffff?text=Icon" alt="若林朋凛"
+                            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover">
+                    </div>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-700 mb-2">
+                    若林 朋凛 <span class="text-pink-400 text-lg font-normal ml-2 font-display">Wakabayashi Tomorin</span>
+                </h2>
+                <p class="text-lg text-slate-500 font-medium mb-6">現役主婦フリーランス11年目</p>
+
+                <!-- SNS Links -->
+                <div class="flex justify-center gap-4 mb-8">
+                    <a href="https://x.com/ZibunDokyumenta?t=WQZrbnHFuWr7XRMUogCbEA&s=09" target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
+                        title="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tomo.rin.comics/?igsh=MWh3bnc5MGloODV3" target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
+                        title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://note.com/language123" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
+                        title="note">
+                        <i class="fas fa-book-open"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
+                        title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-16">
+                <div class="bg-fuchsia-50 rounded-xl p-6 border border-fuchsia-100">
+                    <div class="text-fuchsia-400 text-3xl mb-3"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-700">行政在宅テレワーク講座講師</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">これからの働き方をサポート。在宅ワークの基礎から実践までを丁寧に指導しています。</p>
+                </div>
+
+                <div class="bg-pink-50 rounded-xl p-6 border border-pink-100">
+                    <div class="text-pink-400 text-3xl mb-3"><i class="fas fa-video"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-700">職業訓練校動画講師</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">わかりやすい動画教材の作成と指導を担当。初心者にも優しい解説を心がけています。</p>
+                </div>
+
+                <div class="bg-purple-50 rounded-xl p-6 border border-purple-100">
+                    <div class="text-purple-400 text-3xl mb-3"><i class="fas fa-heart"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-700">メンターコーチング</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">一人ひとりの目標に寄り添い、強みを引き出すコーチングを提供しています。</p>
+                </div>
+
+                <div class="bg-yellow-50 rounded-xl p-6 border border-yellow-100">
+                    <div class="text-yellow-400 text-3xl mb-3"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-700">フリーランス11年目</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">主婦業と両立しながら、安定して稼ぎ続けるノウハウと経験を持っています。</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <section class="bg-white rounded-3xl p-8 md:p-10 shadow-soft border border-pink-50 relative overflow-hidden"
+                id="contact-section">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-pink-100/50 rounded-bl-full -mr-8 -mt-8 pointer-events-none">
+                </div>
+                <h2
+                    class="text-2xl font-bold text-center text-slate-700 mb-8 flex items-center justify-center gap-2 relative z-10">
+                    <i class="fas fa-envelope text-purple-400"></i> お問い合わせ
+                </h2>
+                <form id="contact-form" class="max-w-lg mx-auto space-y-6 relative z-10">
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-slate-600 mb-2">お名前</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition"
+                            placeholder="例: 山田 花子">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-slate-600 mb-2">お問い合わせ内容</label>
+                        <textarea id="message" name="message" required rows="5"
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition resize-none"
+                            placeholder="ご質問やご依頼内容をご記入ください"></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn"
+                        class="w-full py-4 bg-pink-400 hover:bg-pink-500 text-white font-bold rounded-xl shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+                        <span id="btn-text">送信する</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div id="success-message" class="hidden text-center py-8">
+                    <div
+                        class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl animate-bounce">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-700 mb-2">送信完了しました！</h3>
+                    <p class="text-slate-500">お問い合わせありがとうございます。<br>内容を確認次第、ご連絡させていただきます。</p>
+                </div>
+            </section>
         </div>
 
     </main>
 
     <footer class="bg-white/50 backdrop-blur-sm border-t border-pink-100 mt-12 py-8 relative">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-400 mb-4 font-light">&copy; 2026 My Deliverables Portfolio. All rights reserved.</p>
+            <p class="text-slate-400 mb-4 font-light">&copy; 2026 Wakabayashi Tomorin. All rights reserved.</p>
             <button id="admin-login-btn" class="text-slate-300 hover:text-pink-400 transition-colors text-sm"
                 title="管理者ログイン">
                 <i class="fas fa-lock"></i> 管理者用
@@ -246,10 +362,15 @@
         const ADMIN_PASSWORD = "admin"; // 簡易パスワード
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Discord Webhook Notification
+            // Discord Webhook Notification on Load
+            // const WEBHOOK_URL_VISIT = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
+            /* 
+            // Temporarily disabled per standard logic or if user wants to keep it
+            // Let's keep existing logic if it was requested previously, assuming user wants it.
+            // But since we are pasting a big block, I'll re-include the notification logic 
+            */
             const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
 
-            // Check if already visited in this session to avoid spam (optional, can be removed if every hit is needed)
             if (!sessionStorage.getItem('visited')) {
                 fetch(WEBHOOK_URL, {
                     method: 'POST',
@@ -320,6 +441,66 @@
                     renderCards(filtered);
                 });
             });
+
+            // ========================
+            // Contact Form Logic
+            // ========================
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const btn = document.getElementById('submit-btn');
+                    const btnText = document.getElementById('btn-text');
+                    const name = document.getElementById('name').value;
+                    const message = document.getElementById('message').value;
+
+                    if (!name || !message) return;
+
+                    btn.disabled = true;
+                    btnText.innerText = "送信中...";
+                    btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+                    const payload = {
+                        username: "お問い合わせフォーム",
+                        avatar_url: "https://placehold.co/200x200/f472b6/ffffff?text=Mail",
+                        embeds: [{
+                            title: "📩 新しいお問い合わせ",
+                            color: 16032446,
+                            fields: [
+                                { name: "お名前", value: name, inline: true },
+                                { name: "内容", value: message }
+                            ],
+                            timestamp: new Date().toISOString()
+                        }]
+                    };
+
+                    fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                document.getElementById('contact-form').classList.add('hidden');
+                                document.getElementById('success-message').classList.remove('hidden');
+                            } else {
+                                alert('送信に失敗しました。');
+                                btn.disabled = false;
+                                btnText.innerText = "送信する";
+                                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('エラーが発生しました。');
+                            btn.disabled = false;
+                            btnText.innerText = "送信する";
+                            btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                        });
+                });
+            }
+
 
             // ========================
             // Admin Functionality

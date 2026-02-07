@@ -53,7 +53,7 @@ window.deliverablesData = [
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/93c5fd/ffffff?text=Profile",
     "description": "クリエイターとしての経歴、スキルセット、実績をまとめた自己紹介ページ。",
-    "link": "https://tomoko369.github.io/self-introduction/"
+    "link": "./self-introduction/index.html"
   },
   {
     "id": 9,
