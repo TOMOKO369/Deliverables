@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Deliverables</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#475569',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-modal {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Hero Section -->
+    <header class="hero-pattern relative overflow-hidden border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+            <h1
+                class="font-display text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mb-6 tracking-tight animate-fade-in-down">
+                My Deliverables
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
+                アイデアを形に。技術とデザインで課題を解決する<br class="hidden md:inline">私の制作物コレクションです。
+            </p>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
+            <!-- Dynamically populated or static -->
+            <button
+                class="filter-btn active px-5 py-2 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition"
+                data-filter="all">すべて</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="Webアプリ">Webアプリ</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="Webサイト">Webサイト</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="音声ツール">音声ツール</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="デザイン">デザイン</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="動画">動画</button>
+            <button
+                class="filter-btn px-5 py-2 rounded-full bg-white text-slate-600 font-medium shadow-sm border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition"
+                data-filter="拡張機能">拡張機能</button>
+        </div>
+
+        <!-- Add Button (Admin Only) -->
+        <div id="admin-controls" class="hidden mb-8 text-center">
+            <button id="add-item-btn"
+                class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
+            </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards injected here -->
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 relative">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 mb-4">&copy; 2026 My Deliverables Portfolio. All rights reserved.</p>
+            <button id="admin-login-btn" class="text-slate-300 hover:text-slate-500 transition-colors text-sm"
+                title="管理者ログイン">
+                <i class="fas fa-lock"></i> 管理者用
+            </button>
+        </div>
+    </footer>
+
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="fixed inset-0 admin-modal hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0"
+            id="modal-content">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-slate-800" id="modal-title">成果物を追加</h3>
+                <button id="close-modal" class="text-slate-400 hover:text-slate-600"><i
+                        class="fas fa-times"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <form id="add-item-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">タイトル</label>
+                        <input type="text" id="input-title"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            placeholder="例: 新しいプロジェクト" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">カテゴリ</label>
+                        <select id="input-category"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            required>
+                            <option value="Webアプリ">Webアプリ</option>
+                            <option value="Webサイト">Webサイト</option>
+                            <option value="音声ツール">音声ツール</option>
+                            <option value="デザイン">デザイン</option>
+                            <option value="動画">動画</option>
+                            <option value="拡張機能">拡張機能</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">画像URL</label>
+                        <input type="url" id="input-image"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            placeholder="https://..." value="https://placehold.co/600x400/2563eb/ffffff?text=New+Item">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">リンクURL</label>
+                        <input type="url" id="input-link"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            placeholder="https://..." required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">説明文</label>
+                        <textarea id="input-desc"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-24 resize-none"
+                            placeholder="短い説明文を入力..." required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-md">
+                        リストに追加 & コード生成
+                    </button>
+                </form>
+
+                <!-- Code Export Area -->
+                <div id="export-area" class="hidden mt-6 pt-6 border-t border-slate-200">
+                    <p class="text-sm text-green-600 font-bold mb-2"><i class="fas fa-check-circle"></i> 追加されました！以下のコードを
+                        deliverables.js に上書きしてください：</p>
+                    <textarea id="export-code"
+                        class="w-full h-32 p-3 bg-slate-800 text-green-400 font-mono text-xs rounded-lg mb-2"
+                        readonly></textarea>
+                    <button id="copy-code-btn" class="text-sm text-blue-600 hover:underline">クリップボードにコピー</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Loader -->
+    <script src="deliverables.js"></script>
+
+    <script>
+        // Configuration
+        const ADMIN_PASSWORD = "admin"; // 簡易パスワード
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const gallery = document.getElementById('gallery');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            // Initialization
+            let currentData = window.deliverablesData || [];
+            renderCards(currentData);
+
+            // ========================
+            // Core Functionality
+            // ========================
+            function renderCards(data) {
+                gallery.innerHTML = '';
+                if (data.length === 0) {
+                    gallery.innerHTML = '<p class="col-span-full text-center text-slate-500 py-12">成果物が見つかりません</p>';
+                    return;
+                }
+
+                data.forEach((item, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col h-full opacity-0';
+                    card.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+
+                    card.innerHTML = `
+                        <div class="relative h-48 overflow-hidden group bg-slate-100">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm uppercase tracking-wide">
+                                    ${item.category}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">${item.title}</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">${item.description}</p>
+                            <a href="${item.link}" target="_blank" class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-slate-50 text-slate-700 font-medium rounded-lg hover:bg-slate-100 hover:text-blue-600 transition-colors group">
+                                詳細を見る <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    `;
+                    gallery.appendChild(card);
+                });
+            }
+
+            // Filtering
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-blue-600', 'text-white');
+                        b.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-50', 'hover:text-blue-600');
+                    });
+                    btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-50', 'hover:text-blue-600');
+                    btn.classList.add('bg-blue-600', 'text-white');
+
+                    const category = btn.getAttribute('data-filter');
+                    const filtered = category === 'all' ? currentData : currentData.filter(d => d.category === category);
+                    renderCards(filtered);
+                });
+            });
+
+            // ========================
+            // Admin Functionality
+            // ========================
+            const adminLoginBtn = document.getElementById('admin-login-btn');
+            const adminControls = document.getElementById('admin-controls');
+            const adminModal = document.getElementById('admin-modal');
+            const modalContent = document.getElementById('modal-content');
+            const addItemBtn = document.getElementById('add-item-btn');
+            const closeModalBtn = document.getElementById('close-modal');
+            const addItemForm = document.getElementById('add-item-form');
+            const exportArea = document.getElementById('export-area');
+            const exportCode = document.getElementById('export-code');
+            const copyCodeBtn = document.getElementById('copy-code-btn');
+
+            let isAdmin = false;
+
+            // Login
+            adminLoginBtn.addEventListener('click', () => {
+                if (isAdmin) return;
+                const password = prompt("管理者パスワードを入力してください:");
+                if (password === ADMIN_PASSWORD) {
+                    isAdmin = true;
+                    adminControls.classList.remove('hidden');
+                    adminLoginBtn.innerHTML = '<i class="fas fa-user-shield"></i> 管理者モード中';
+                    adminLoginBtn.classList.remove('text-slate-300');
+                    adminLoginBtn.classList.add('text-green-600');
+                    alert("管理者としてログインしました。成果物の追加が可能です。");
+                } else if (password !== null) {
+                    alert("パスワードが違います。");
+                }
+            });
+
+            // Open/Close Modal
+            const toggleModal = (show) => {
+                if (show) {
+                    adminModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modalContent.classList.remove('scale-95', 'opacity-0');
+                        modalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                } else {
+                    modalContent.classList.remove('scale-100', 'opacity-100');
+                    modalContent.classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => adminModal.classList.add('hidden'), 300);
+                }
+            };
+
+            addItemBtn.addEventListener('click', () => {
+                toggleModal(true);
+                exportArea.classList.add('hidden');
+                addItemForm.reset();
+            });
+
+            closeModalBtn.addEventListener('click', () => toggleModal(false));
+            adminModal.addEventListener('click', (e) => {
+                if (e.target === adminModal) toggleModal(false);
+            });
+
+            // Add Item Logic
+            addItemForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const newItem = {
+                    id: currentData.length + 1,
+                    title: document.getElementById('input-title').value,
+                    category: document.getElementById('input-category').value,
+                    image: document.getElementById('input-image').value,
+                    description: document.getElementById('input-desc').value,
+                    link: document.getElementById('input-link').value
+                };
+
+                // Update Data
+                currentData.push(newItem);
+
+                // Refresh View
+                document.querySelector('[data-filter="all"]').click(); // Reset filter
+                renderCards(currentData);
+
+                // Generate Code
+                const jsonString = JSON.stringify(currentData, null, 2);
+                const jsCode = `window.deliverablesData = ${jsonString};`;
+
+                exportCode.value = jsCode;
+                exportArea.classList.remove('hidden');
+
+                // Scroll to bottom of modal
+                modalContent.parentElement.scrollTo({ top: modalContent.parentElement.scrollHeight, behavior: 'smooth' });
+            });
+
+            // Copy Code
+            copyCodeBtn.addEventListener('click', () => {
+                exportCode.select();
+                document.execCommand('copy');
+                const originalText = copyCodeBtn.innerText;
+                copyCodeBtn.innerText = "コピーしました！";
+                setTimeout(() => copyCodeBtn.innerText = originalText, 2000);
+                alert("コードをコピーしました。\ndeliverables.js ファイルの中身をこのコードで上書き保存してください。");
+            });
+        });
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+
+</html>
