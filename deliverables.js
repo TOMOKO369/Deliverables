@@ -7,15 +7,15 @@ window.deliverablesData = [
     "description": "クリエイターとしての経歴、スキルセット、実績をまとめた自己紹介ページ。",
     "link": "#profile"
   },
-  {
-    "id": 1,
-    "title": "音声書き起こしツール",
-    "category": "音声ツール",
-    "image": "https://placehold.co/600x400/a5b4fc/ffffff?text=Voice+Tool",
-    "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。（ローカルで動くのでWEBサイトはございません）",
-    "link": "#"
-  },
 
+  {
+    "id": 9,
+    "title": "講師・レッスン",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/6ee7b7/ffffff?text=Teacher",
+    "description": "個人レッスンや講師活動についての詳細情報を掲載したウェブサイト。",
+    "link": "https://tomoko369.github.io/teacher/"
+  },
   {
     "id": 3,
     "title": "創理紹介サイト",
@@ -49,14 +49,7 @@ window.deliverablesData = [
     "link": "https://tomoko369.github.io/omamorikigan/"
   },
 
-  {
-    "id": 9,
-    "title": "講師・レッスン",
-    "category": "Webサイト",
-    "image": "https://placehold.co/600x400/6ee7b7/ffffff?text=Teacher",
-    "description": "個人レッスンや講師活動についての詳細情報を掲載したウェブサイト。",
-    "link": "https://tomoko369.github.io/teacher/"
-  },
+
   {
     "id": 14,
     "title": "もう怖くない仕事・質問依頼文作成図鑑",
@@ -136,5 +129,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/fbbf24/ffffff?text=Typing+Game",
     "description": "友達と競える対戦型タイピングゲーム。",
     "link": "https://tomoko369.github.io/-/"
+  },
+  {
+    "id": 1,
+    "title": "音声書き起こしツール",
+    "category": "音声ツール",
+    "image": "https://placehold.co/600x400/a5b4fc/ffffff?text=Voice+Tool",
+    "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。（ローカルで動くのでWEBサイトはございません）",
+    "link": "#"
   }
 ];
