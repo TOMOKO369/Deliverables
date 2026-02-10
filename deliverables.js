@@ -138,5 +138,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/a5b4fc/ffffff?text=Voice+Tool",
     "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。（ローカルで動くのでWEBサイトはございません）",
     "link": "#"
+  },
+  {
+    "id": 20,
+    "title": "毎日の星占い",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/a78bfa/ffffff?text=Horoscope",
+    "description": "毎日の運勢をランキング形式で紹介する星占いサイト。ラッキーアイテムやカラーもチェックできます。",
+    "link": "https://tomoko369.github.io/uranai0210/"
   }
 ];
