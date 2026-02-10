@@ -17,6 +17,14 @@ window.deliverablesData = [
     "link": "https://tomoko369.github.io/teacher/"
   },
   {
+    "id": 17,
+    "title": "問い合わせフォーム",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
+    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）<br><a href='#contact-section' class='text-pink-500 font-bold hover:underline'>私への問い合わせはこちら</a>",
+    "link": "#contact-section"
+  },
+  {
     "id": 3,
     "title": "創理紹介サイト",
     "category": "Webサイト",
@@ -106,14 +114,7 @@ window.deliverablesData = [
     "description": "Googleフォームと連携し、自動返信やスプレッドシート管理を行う申し込みシステム。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
-  {
-    "id": 17,
-    "title": "問い合わせフォーム",
-    "category": "GAS",
-    "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
-    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）<br><a href='#contact-section' class='text-pink-500 font-bold hover:underline'>私への問い合わせはこちら</a>",
-    "link": "#contact-section"
-  },
+
   {
     "id": 18,
     "title": "あなたの開運適正がわかる！九星気学",
@@ -124,10 +125,10 @@ window.deliverablesData = [
   },
   {
     "id": 19,
-    "title": "対戦タイピングソフト",
+    "title": "タイピング練習ソフト",
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/fbbf24/ffffff?text=Typing+Game",
-    "description": "友達と競える対戦型タイピングゲーム。",
+    "description": "友達と競えるタイピング練習ゲーム。",
     "link": "https://tomoko369.github.io/-/"
   },
   {
