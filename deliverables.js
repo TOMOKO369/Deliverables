@@ -1,10 +1,18 @@
 window.deliverablesData = [
   {
+    "id": 8,
+    "title": "自己紹介",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/93c5fd/ffffff?text=Profile",
+    "description": "クリエイターとしての経歴、スキルセット、実績をまとめた自己紹介ページ。",
+    "link": "#profile"
+  },
+  {
     "id": 1,
     "title": "音声書き起こしツール",
     "category": "音声ツール",
     "image": "https://placehold.co/600x400/a5b4fc/ffffff?text=Voice+Tool",
-    "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。",
+    "description": "OpenAI Whisperを使用したローカル書き起こしツール。高精度な文字起こしが可能です。（ローカルで動くのでWEBサイトはございません）",
     "link": "#"
   },
 
@@ -40,14 +48,7 @@ window.deliverablesData = [
     "description": "運気を上げるための御守り祈願サイト。デジタル御守り機能付き。",
     "link": "https://tomoko369.github.io/omamorikigan/"
   },
-  {
-    "id": 8,
-    "title": "自己紹介",
-    "category": "Webサイト",
-    "image": "https://placehold.co/600x400/93c5fd/ffffff?text=Profile",
-    "description": "クリエイターとしての経歴、スキルセット、実績をまとめた自己紹介ページ。",
-    "link": "https://tomoko369.github.io/self-introduction/"
-  },
+
   {
     "id": 9,
     "title": "講師・レッスン",
@@ -77,7 +78,7 @@ window.deliverablesData = [
     "title": "マークダウン式メモ",
     "category": "拡張機能",
     "image": "https://placehold.co/600x400/c4b5fd/ffffff?text=Markdown+Memo",
-    "description": "ブラウザで手軽に使えるマークダウン記法対応のメモ帳拡張機能。",
+    "description": "ブラウザで手軽に使えるマークダウン記法対応のメモ帳拡張機能。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
   {
@@ -85,7 +86,7 @@ window.deliverablesData = [
     "title": "ストップウォッチURLメモ",
     "category": "拡張機能",
     "image": "https://placehold.co/600x400/fb7185/ffffff?text=Stopwatch",
-    "description": "作業時間を計測しながら、関連するURLをメモできる便利ツール。",
+    "description": "作業時間を計測しながら、関連するURLをメモできる便利ツール。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
   {
@@ -93,7 +94,7 @@ window.deliverablesData = [
     "title": "カラースポイト機能",
     "category": "拡張機能",
     "image": "https://placehold.co/600x400/67e8f9/ffffff?text=Color+Picker",
-    "description": "Webページ上の色を簡単に取得・コピーできるデザイナー向け拡張機能。",
+    "description": "Webページ上の色を簡単に取得・コピーできるデザイナー向け拡張機能。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
   {
@@ -101,7 +102,7 @@ window.deliverablesData = [
     "title": "西暦和暦変換",
     "category": "拡張機能",
     "image": "https://placehold.co/600x400/2dd4bf/ffffff?text=Date+Converter",
-    "description": "簡単に西暦と和暦を変換できる便利ツール。",
+    "description": "簡単に西暦と和暦を変換できる便利ツール。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
   {
@@ -109,7 +110,7 @@ window.deliverablesData = [
     "title": "申し込みフォーム",
     "category": "GAS",
     "image": "https://placehold.co/600x400/34d399/ffffff?text=Form+App",
-    "description": "Googleフォームと連携し、自動返信やスプレッドシート管理を行う申し込みシステム。",
+    "description": "Googleフォームと連携し、自動返信やスプレッドシート管理を行う申し込みシステム。（ローカルで動くのでサイトはありません）",
     "link": "#"
   },
   {
@@ -117,8 +118,8 @@ window.deliverablesData = [
     "title": "問い合わせフォーム",
     "category": "GAS",
     "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
-    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。",
-    "link": "#"
+    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）<br><a href='#contact-section' class='text-pink-500 font-bold hover:underline'>私への問い合わせはこちら</a>",
+    "link": "#contact-section"
   },
   {
     "id": 18,
@@ -127,5 +128,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/c084fc/ffffff?text=Fortune",
     "description": "九星気学を用いて、あなたの開運適正を診断するWebサイト。",
     "link": "https://tomoko369.github.io/fortunetelling/"
+  },
+  {
+    "id": 19,
+    "title": "対戦タイピングソフト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/fbbf24/ffffff?text=Typing+Game",
+    "description": "友達と競える対戦型タイピングゲーム。",
+    "link": "https://tomoko369.github.io/-/"
   }
 ];
