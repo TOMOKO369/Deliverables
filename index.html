@@ -416,6 +416,14 @@
             let currentData = window.deliverablesData || [];
             renderCards(currentData);
 
+            // Automatically scroll to profile section on load
+            const profileSection = document.getElementById('profile');
+            if (profileSection && !window.location.hash) {
+                setTimeout(() => {
+                    profileSection.scrollIntoView({ behavior: 'smooth' });
+                }, 800); // Wait for animations/rendering
+            }
+
             // ========================
             // Core Functionality
             // ========================
