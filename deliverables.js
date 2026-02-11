@@ -146,5 +146,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/a78bfa/ffffff?text=Horoscope",
     "description": "毎日の運勢をランキング形式で紹介する星占いサイト。ラッキーアイテムやカラーもチェックできます。",
     "link": "https://tomoko369.github.io/uranai0210/"
+  },
+  {
+    "id": 21,
+    "title": "ジャーナリング振り返り機能",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/ffb7b2/ffffff?text=Journaling",
+    "description": "日々の振り返りを記録し、AIからフィードバックをもらえるツール。（GASなのでローカルでうごく為WEBサイトはございません）",
+    "link": "#"
   }
 ];
