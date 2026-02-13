@@ -483,7 +483,7 @@
     </div>
 
     <!-- Data Loader -->
-    <script src="deliverables.js?v=20260213-2053"></script>
+    <script src="deliverables.js?v=20260214-0043"></script>
 
     <script>
         // Configuration
@@ -515,6 +515,7 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
 
             // Initialization
+            let currentData = window.deliverablesData || [];
             renderCards(currentData);
 
             // Automatically scroll to profile section on load as requested
