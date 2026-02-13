@@ -25,6 +25,14 @@ window.deliverablesData = [
     "link": "#contact-section"
   },
   {
+    "id": 22,
+    "title": "雑談とビジネス音声配信と動画配信サイト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/ff7e67/ffffff?text=Streaming+Site",
+    "description": "雑談やビジネスの音声配信と、日本語・英語・中国語に対応した動画配信サイト。",
+    "link": "https://tomoko369.github.io/Chatandbusiness/"
+  },
+  {
     "id": 3,
     "title": "創理紹介サイト",
     "category": "Webサイト",
@@ -155,12 +163,4 @@ window.deliverablesData = [
     "description": "日々の振り返りを記録し、AIからフィードバックをもらえるツール。（GASなのでローカルでうごく為WEBサイトはございません）",
     "link": "#"
   },
-  {
-    "id": 22,
-    "title": "雑談とビジネス音声配信と動画配信サイト",
-    "category": "Webサイト",
-    "image": "https://placehold.co/600x400/ff7e67/ffffff?text=Streaming+Site",
-    "description": "雑談やビジネスの音声配信と、日本語・英語・中国語に対応した動画配信サイト。",
-    "link": "https://tomoko369.github.io/Chatandbusiness/"
-  }
 ];
