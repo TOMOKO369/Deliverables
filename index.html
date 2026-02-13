@@ -89,7 +89,6 @@
         var,
         b,
         u,
-        i,
         center,
         dl,
         dt,
@@ -516,8 +515,16 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
 
             // Initialization
-            let currentData = window.deliverablesData || [];
             renderCards(currentData);
+
+            // Automatically scroll to profile section on load as requested
+            const profileSection = document.getElementById('profile');
+            if (profileSection) {
+                // Use a small timeout to ensure rendering is stable
+                setTimeout(() => {
+                    profileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500);
+            }
 
             // ========================
             // Core Functionality
