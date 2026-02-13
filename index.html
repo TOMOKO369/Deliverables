@@ -15,9 +15,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Noto Sans JP"', 'sans-serif'],
-                        display: ['"Outfit"', 'sans-serif'],
-                        zen: ['"Zen Maru Gothic"', 'sans-serif'],
+                        sans: ['"F66MacaronR"', '"Noto Sans JP"', 'sans-serif'],
+                        display: ['"F66MacaronR"', '"Outfit"', 'sans-serif'],
+                        zen: ['"F66MacaronR"', '"Zen Maru Gothic"', 'sans-serif'],
                     },
                     colors: {
                         primary: '#f472b6', // Pastel Pink
@@ -38,8 +38,14 @@
         }
     </script>
     <style>
+        @font-face {
+            font-family: 'F66MacaronR';
+            src: url('F66MacaronR.otf') format('opentype');
+            /* Adjust path as needed */
+        }
+
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif;
             background-color: #fff5f7;
             /* Very light pink */
             background-image: linear-gradient(to bottom right, #fff0f5, #fff5f7);
@@ -58,12 +64,15 @@
             paint-order: stroke fill;
             color: #f472b6;
             /* Fallback */
+            font-family: 'F66MacaronR', 'Outfit', sans-serif;
+            /* Explicitly ensure it applies here too */
         }
 
         .card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #fce7f3;
             /* Pink border */
+            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif;
         }
 
         .card:hover {
@@ -74,6 +83,7 @@
 
         .filter-btn {
             transition: all 0.3s ease;
+            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif;
         }
 
         .filter-btn.active {
@@ -83,6 +93,7 @@
         .admin-modal {
             background-color: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(8px);
+            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif;
         }
 
         /* Custom Scrollbar */
