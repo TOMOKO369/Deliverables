@@ -15,8 +15,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Zen Maru Gothic"', 'sans-serif'],
-                        display: ['"Outfit"', 'sans-serif'],
+                        sans: ['"F66MacaronR"', '"Zen Maru Gothic"', 'sans-serif'],
+                        display: ['"F66MacaronR"', '"Outfit"', 'sans-serif'],
                     },
                     colors: {
                         primary: '#f472b6',
@@ -38,8 +38,16 @@
         }
     </script>
     <style>
+        @font-face {
+            font-family: 'F66MacaronR';
+            src: url('../F66MacaronR.ttf?v=20260213') format('truetype');
+        }
+
+        * {
+            font-family: 'F66MacaronR', 'Zen Maru Gothic', sans-serif !important;
+        }
+
         body {
-            font-family: 'Zen Maru Gothic', sans-serif;
             background-color: #fff5f7;
             background-image: linear-gradient(to bottom right, #fff0f5, #fff5f7);
             color: #475569;
@@ -52,6 +60,7 @@
 
         .card {
             transition: all 0.3s ease;
+            font-family: 'F66MacaronR', 'Zen Maru Gothic', sans-serif;
         }
 
         .card:hover {

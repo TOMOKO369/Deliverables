@@ -40,12 +40,14 @@
     <style>
         @font-face {
             font-family: 'F66MacaronR';
-            src: url('F66MacaronR.otf') format('opentype');
-            /* Adjust path as needed */
+            src: url('F66MacaronR.ttf?v=20260213') format('truetype');
+        }
+
+        * {
+            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif !important;
         }
 
         body {
-            font-family: 'F66MacaronR', 'Noto Sans JP', sans-serif;
             background-color: #fff5f7;
             /* Very light pink */
             background-image: linear-gradient(to bottom right, #fff0f5, #fff5f7);
