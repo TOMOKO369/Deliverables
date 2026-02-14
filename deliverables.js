@@ -166,7 +166,7 @@ window.deliverablesData = [
   {
     "id": 23,
     "title": "YouTube記録ボタン",
-    "category": "Webサイト",
+    "category": "GAS・Webサイト",
     "image": "https://placehold.co/600x400/ef4444/ffffff?text=YouTube+Record",
     "description": "YouTubeの再生数と登録者数をスプレッドシートに記録するボタン。",
     "link": "https://tomoko369.github.io/YOUTUBE--0214/"

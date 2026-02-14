@@ -486,7 +486,7 @@
     </div>
 
     <!-- Data Loader -->
-    <script src="deliverables.js?v=20260214-2110"></script>
+    <script src="deliverables.js?v=20260214-2114"></script>
 
     <script>
         // Configuration
@@ -578,7 +578,7 @@
                     btn.classList.add('bg-pink-400', 'text-white');
 
                     const category = btn.getAttribute('data-filter');
-                    const filtered = category === 'all' ? currentData : currentData.filter(d => d.category === category);
+                    const filtered = category === 'all' ? currentData : currentData.filter(d => d.category.includes(category));
                     renderCards(filtered);
                 });
             });
