@@ -163,4 +163,12 @@ window.deliverablesData = [
     "description": "日々の振り返りを記録し、AIからフィードバックをもらえるツール。（GASなのでローカルでうごく為WEBサイトはございません）",
     "link": "#"
   },
+  {
+    "id": 23,
+    "title": "YouTube記録ボタン",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/ef4444/ffffff?text=YouTube+Record",
+    "description": "YouTubeの再生数と登録者数をスプレッドシートに記録するボタン。",
+    "link": "https://tomoko369.github.io/YOUTUBE--0214/"
+  }
 ];
