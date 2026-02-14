@@ -170,5 +170,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/ef4444/ffffff?text=YouTube+Record",
     "description": "YouTubeの再生数と登録者数をスプレッドシートに記録するボタン。",
     "link": "https://tomoko369.github.io/YOUTUBE--0214/"
+  },
+  {
+    "id": 24,
+    "title": "URLリンク保存＆送信機能",
+    "category": "拡張機能",
+    "image": "https://placehold.co/600x400/8b5cf6/ffffff?text=URL+Save",
+    "description": "URLを１０個保存、そのURLからもリンクへ飛べる、WEBFOOKで送信(ローカルで動くのでWEBサイトはございません)",
+    "link": "#"
   }
 ];
