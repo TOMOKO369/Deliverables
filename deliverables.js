@@ -186,5 +186,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/1d9bf0/ffffff?text=X+Space+DL",
     "description": "エックスのスペースをDLする機能。（ローカルで動くのでWEBサイトはありません）",
     "link": "#"
+  },
+  {
+    "id": 26,
+    "title": "英単語帳",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/4ade80/ffffff?text=Vocabulary+Book",
+    "description": "英語をグーグルフォームで記載し、スプレッドシートでデータを蓄積する(ローカルで動くのでWEBサイトはございません)",
+    "link": "#"
   }
 ];
