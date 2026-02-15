@@ -178,5 +178,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/8b5cf6/ffffff?text=URL+Save",
     "description": "URLを１０個保存、そのURLからもリンクへ飛べる、WEBFOOKで送信(ローカルで動くのでWEBサイトはございません)",
     "link": "#"
+  },
+  {
+    "id": 25,
+    "title": "Xスペースダウンロード機能",
+    "category": "音声ツール",
+    "image": "https://placehold.co/600x400/1d9bf0/ffffff?text=X+Space+DL",
+    "description": "エックスのスペースをDLする機能。（ローカルで動くのでWEBサイトはありません）",
+    "link": "#"
   }
 ];
