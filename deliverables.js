@@ -194,5 +194,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/4ade80/ffffff?text=Vocabulary+Book",
     "description": "英語をグーグルフォームで記載し、スプレッドシートでデータを蓄積する(ローカルで動くのでWEBサイトはございません)",
     "link": "#"
+  },
+  {
+    "id": 27,
+    "title": "うちの子もしかしてと思ったらチェックするサイト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/fb923c/ffffff?text=Check+Site",
+    "description": "「うちの子もしかして」と思ったら手軽に確認できるセルフチェックサイト。",
+    "link": "https://tomoko369.github.io/adhd/"
   }
 ];
