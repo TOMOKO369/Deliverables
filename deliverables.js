@@ -202,5 +202,21 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/fb923c/ffffff?text=Check+Site",
     "description": "「うちの子もしかして」と思ったら手軽に確認できるセルフチェックサイト。",
     "link": "https://tomoko369.github.io/adhd/"
+  },
+  {
+    "id": 28,
+    "title": "気分が落ちてるのは天気のせいかも！？",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/38bdf8/ffffff?text=Weather+Mood",
+    "description": "天気と気圧と気分の入力ソフト。（ローカルで動くのでWEBサイトはございません）",
+    "link": "#"
+  },
+  {
+    "id": 29,
+    "title": "星占い",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/a78bfa/ffffff?text=Horoscope",
+    "description": "今日の開運メッセージをお届けする星占いサイト。",
+    "link": "https://tomoko369.github.io/uranai0305/"
   }
 ];
