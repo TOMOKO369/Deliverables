@@ -218,5 +218,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/a78bfa/ffffff?text=Horoscope",
     "description": "今日の開運メッセージをお届けする星占いサイト。",
     "link": "https://tomoko369.github.io/uranai0305/"
+  },
+  {
+    "id": 30,
+    "title": "テキストを音声に変換するWEBサイト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/818cf8/ffffff?text=Text+to+Speech",
+    "description": "テキストを音声に変換するWEBサイト。",
+    "link": "https://tomoko369.github.io/textread/"
   }
 ];
