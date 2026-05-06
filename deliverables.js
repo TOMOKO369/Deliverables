@@ -226,5 +226,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/818cf8/ffffff?text=Text+to+Speech",
     "description": "テキストを音声に変換するWEBサイト。",
     "link": "https://tomoko369.github.io/textread/"
+  },
+  {
+    "id": 31,
+    "title": "PDFをTEXT変換",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/f472b6/ffffff?text=PDF+to+Text",
+    "description": "PDFファイルのテキストを抽出して変換するWEBツール。",
+    "link": "https://tomoko369.github.io/PDFtxet/"
   }
 ];
