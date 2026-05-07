@@ -234,5 +234,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/f472b6/ffffff?text=PDF+to+Text",
     "description": "PDFファイルのテキストを抽出して変換するWEBツール。",
     "link": "https://tomoko369.github.io/PDFtxet/"
+  },
+  {
+    "id": 32,
+    "title": "小学校の準備アプリ",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/14b8a6/ffffff?text=Kids+Planner",
+    "description": "現在時刻天気持ち物時間割一括管理",
+    "link": "https://tomoko369.github.io/timetable/"
   }
 ];
