@@ -75,14 +75,6 @@ window.deliverablesData = [
     "link": "https://tomoko369.github.io/Howtoaskquestions/"
   },
   {
-    "id": 10,
-    "title": "YouTubeチャンネル",
-    "category": "動画",
-    "image": "https://placehold.co/600x400/f87171/ffffff?text=YouTube",
-    "description": "技術解説やライフスタイルなどの発信を行っているYouTubeチャンネル。",
-    "link": "https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw"
-  },
-  {
     "id": 11,
     "title": "マークダウン式メモ",
     "category": "拡張機能",

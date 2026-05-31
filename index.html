@@ -260,7 +260,7 @@
             <!-- Add Button (Admin Only) -->
             <div id="admin-controls" class="hidden mb-8 text-center">
                 <button id="add-item-btn"
-                    class="inline-flex items-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                    class="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
                     <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
                 </button>
             </div>
@@ -431,18 +431,18 @@
                 <div id="preview-loading" class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">
                     <div class="text-center">
                         <div class="w-12 h-12 border-4 border-gray-200 border-t-gray-700 rounded-full animate-spin mx-auto mb-4"></div>
-                        <p class="text-slate-500 text-sm">読み込み中...</p>
+                        <p class="text-gray-500 text-sm">読み込み中...</p>
                     </div>
                 </div>
-                <div id="preview-blocked" class="absolute inset-0 flex items-center justify-center bg-pink-50 z-10 hidden">
+                <div id="preview-blocked" class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10 hidden">
                     <div class="text-center px-6">
-                        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-external-link-alt text-2xl text-pink-400"></i>
+                        <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-external-link-alt text-2xl text-gray-500"></i>
                         </div>
-                        <p class="text-slate-600 font-bold mb-2">このサイトはiframe表示に対応していません</p>
-                        <p class="text-slate-400 text-sm mb-4">セキュリティ設定により、直接プレビューできません。</p>
+                        <p class="text-gray-700 font-bold mb-2">このサイトはiframe表示に対応していません</p>
+                        <p class="text-gray-400 text-sm mb-4">セキュリティ設定により、直接プレビューできません。</p>
                         <a id="preview-blocked-link" href="#" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-pink-400 hover:bg-pink-500 text-white font-bold rounded-xl shadow-md transition">
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition">
                             <i class="fas fa-external-link-alt"></i> 別タブで開く
                         </a>
                     </div>
@@ -455,25 +455,25 @@
 
     <!-- Admin Modal -->
     <div id="admin-modal" class="fixed inset-0 admin-modal hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 border border-pink-100"
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 border border-gray-200"
             id="modal-content">
-            <div class="bg-pink-50 px-6 py-4 border-b border-pink-100 flex justify-between items-center">
-                <h3 class="text-lg font-bold text-slate-700" id="modal-title">成果物を追加</h3>
-                <button id="close-modal" class="text-slate-400 hover:text-pink-500"><i
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-900" id="modal-title">成果物を追加</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-black"><i
                         class="fas fa-times"></i></button>
             </div>
             <div class="p-6 space-y-4">
                 <form id="add-item-form" class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-600 mb-1">タイトル</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">タイトル</label>
                         <input type="text" id="input-title"
-                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 outline-none transition"
+                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition"
                             placeholder="例: 新しいプロジェクト" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-600 mb-1">カテゴリ</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">カテゴリ</label>
                         <select id="input-category"
-                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
+                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
                             required>
                             <option value="Webアプリ">Webアプリ</option>
                             <option value="Webサイト">Webサイト</option>
@@ -485,37 +485,37 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-600 mb-1">画像URL</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">画像URL</label>
                         <input type="url" id="input-image"
-                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
-                            placeholder="https://..." value="https://placehold.co/600x400/f472b6/ffffff?text=New+Item">
+                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
+                            placeholder="https://..." value="https://placehold.co/600x400/333333/ffffff?text=New+Item">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-600 mb-1">リンクURL</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">リンクURL</label>
                         <input type="url" id="input-link"
-                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
+                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
                             placeholder="https://..." required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-600 mb-1">説明文</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">説明文</label>
                         <textarea id="input-desc"
-                            class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-pink-400 outline-none h-24 resize-none"
+                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none h-24 resize-none"
                             placeholder="短い説明文を入力..." required></textarea>
                     </div>
                     <button type="submit"
-                        class="w-full py-3 bg-pink-400 text-white font-bold rounded-lg hover:bg-pink-500 transition shadow-md shadow-pink-200">
+                        class="w-full py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition shadow-md">
                         リストに追加 & コード生成
                     </button>
                 </form>
 
                 <!-- Code Export Area -->
-                <div id="export-area" class="hidden mt-6 pt-6 border-t border-slate-100">
-                    <p class="text-sm text-emerald-500 font-bold mb-2"><i class="fas fa-check-circle"></i>
+                <div id="export-area" class="hidden mt-6 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-green-600 font-bold mb-2"><i class="fas fa-check-circle"></i>
                         追加されました！以下のコードを deliverables.js に上書きしてください：</p>
                     <textarea id="export-code"
-                        class="w-full h-32 p-3 bg-slate-800 text-emerald-400 font-mono text-xs rounded-lg mb-2"
+                        class="w-full h-32 p-3 bg-gray-900 text-green-400 font-mono text-xs rounded-lg mb-2"
                         readonly></textarea>
-                    <button id="copy-code-btn" class="text-sm text-pink-500 hover:underline">クリップボードにコピー</button>
+                    <button id="copy-code-btn" class="text-sm text-gray-600 hover:underline">クリップボードにコピー</button>
                 </div>
             </div>
         </div>
@@ -850,8 +850,8 @@
                     isAdmin = true;
                     adminControls.classList.remove('hidden');
                     adminLoginBtn.innerHTML = '<i class="fas fa-user-shield"></i> 管理者モード中';
-                    adminLoginBtn.classList.remove('text-slate-300');
-                    adminLoginBtn.classList.add('text-emerald-500');
+                    adminLoginBtn.classList.remove('text-gray-300');
+                    adminLoginBtn.classList.add('text-gray-700');
                     alert("管理者としてログインしました。成果物の追加が可能です。");
                 } else if (password !== null) {
                     alert("パスワードが違います。");
