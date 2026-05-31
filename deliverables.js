@@ -1,5 +1,21 @@
 window.deliverablesData = [
   {
+    "id": 35,
+    "title": "がんばらないAIママ研究所",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/6b7280/ffffff?text=AI+Mama+Lab",
+    "description": "がんばらないAIママ研究所の紹介サイト。",
+    "link": "https://tomoko369.github.io/reservation/about.html"
+  },
+  {
+    "id": 34,
+    "title": "コミティア現地予約サイト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/4b5563/ffffff?text=Comitia+Reservation",
+    "description": "コミティア会場での現地予約を管理するWebサイト。",
+    "link": "https://tomoko369.github.io/reservation/"
+  },
+  {
     "id": 8,
     "title": "自己紹介",
     "category": "Webサイト",
