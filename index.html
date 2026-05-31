@@ -590,33 +590,36 @@
 
                     const isLocalOnly = item.link === '#' || item.link === '#contact-section';
                     card.innerHTML = `
-        <div class="relative h-48 overflow-hidden group bg-pink-50 ${!isLocalOnly ? 'cursor-pointer' : ''}" ${!isLocalOnly ? 'data-action="preview"' : ''}>
-            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute top-4 left-4">
-                <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-pink-500 shadow-sm uppercase tracking-wide">
+        <div class="card-img-area relative overflow-hidden group bg-gray-100 ${!isLocalOnly ? 'cursor-pointer' : ''}" style="height:220px;" ${!isLocalOnly ? 'data-action="preview"' : ''}>
+            <img src="${item.image}" alt="${item.title}" class="preview-fallback absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500">
+            ${!isLocalOnly ? `<div class="preview-frame-slot absolute inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-700" data-url="${item.link}"></div>
+            <div class="preview-spinner absolute inset-0 z-30 flex items-center justify-center bg-gray-50/80 pointer-events-none">
+                <div class="w-6 h-6 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+            </div>` : ''}
+            <div class="absolute top-3 left-3 z-40">
+                <span class="bg-black/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-white shadow-sm uppercase tracking-wide">
                     ${item.category}
                 </span>
             </div>
             ${!isLocalOnly ? `
-            <div class="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
-                <span class="opacity-0 group-hover:opacity-100 bg-white text-pink-500 font-bold px-4 py-2 rounded-full shadow-lg transition-all duration-300 transform scale-90 group-hover:scale-100">
-                    <i class="fas fa-eye mr-1"></i> プレビュー
+            <div class="absolute inset-0 z-50 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                <span class="opacity-0 group-hover:opacity-100 bg-white text-black font-bold px-4 py-2 rounded-full shadow-lg transition-all duration-300 transform scale-90 group-hover:scale-100 text-sm">
+                    <i class="fas fa-expand mr-1"></i> 全画面で見る
                 </span>
-            </div>
-            ` : ''}
+            </div>` : ''}
         </div>
-        <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-slate-700 mb-2">${item.title}</h3>
-            <p class="text-slate-500 text-sm leading-relaxed mb-4 flex-grow">${item.description}</p>
+        <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-base font-bold text-gray-900 mb-1">${item.title}</h3>
+            <p class="text-gray-500 text-xs leading-relaxed mb-3 flex-grow">${item.description}</p>
             ${isLocalOnly ?
-                `<span class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-slate-50 text-slate-400 font-medium rounded-lg cursor-default">
+                `<span class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-gray-100 text-gray-400 font-medium rounded-lg cursor-default text-sm">
                     <i class="fas fa-laptop-code mr-2"></i>ローカル専用ツール
                 </span>` :
                 `<div class="flex gap-2 mt-auto">
-                    <button data-action="preview" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-pink-50 text-pink-600 font-medium rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors">
-                        <i class="fas fa-eye mr-2"></i>プレビュー
+                    <button data-action="preview" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors text-sm">
+                        <i class="fas fa-expand mr-2"></i>全画面で見る
                     </button>
-                    <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 bg-slate-50 text-slate-500 font-medium rounded-lg hover:bg-slate-100 transition-colors" title="別タブで開く">
+                    <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200 transition-colors" title="別タブで開く">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>`
@@ -625,17 +628,68 @@
         `;
                     gallery.appendChild(card);
                 });
+                initCardPreviews();
+            }
+
+            function initCardPreviews() {
+                const slots = document.querySelectorAll('.preview-frame-slot[data-url]:not([data-loaded])');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) return;
+                        const slot = entry.target;
+                        if (slot.dataset.loaded) return;
+                        slot.dataset.loaded = '1';
+                        observer.unobserve(slot);
+
+                        const url = slot.dataset.url;
+                        const container = slot.closest('.card-img-area');
+                        const spinner = container?.querySelector('.preview-spinner');
+                        const fallback = container?.querySelector('.preview-fallback');
+
+                        const containerW = container?.offsetWidth || 400;
+                        const containerH = container?.offsetHeight || 220;
+                        const iframeW = 1440;
+                        const scale = containerW / iframeW;
+                        const iframeH = Math.ceil(containerH / scale);
+
+                        const scaler = document.createElement('div');
+                        scaler.style.cssText = `width:${iframeW}px;height:${iframeH}px;transform:scale(${scale});transform-origin:top left;`;
+
+                        const iframe = document.createElement('iframe');
+                        iframe.src = url;
+                        iframe.scrolling = 'no';
+                        iframe.tabIndex = -1;
+                        iframe.style.cssText = `width:${iframeW}px;height:${iframeH}px;border:none;display:block;`;
+                        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
+
+                        let loadTimer = setTimeout(() => {
+                            if (spinner) spinner.style.display = 'none';
+                        }, 10000);
+
+                        iframe.onload = () => {
+                            clearTimeout(loadTimer);
+                            if (spinner) spinner.style.display = 'none';
+                            slot.style.opacity = '1';
+                            if (fallback) { fallback.style.opacity = '0'; fallback.style.pointerEvents = 'none'; }
+                        };
+
+                        scaler.appendChild(iframe);
+                        slot.appendChild(scaler);
+                    });
+                }, { rootMargin: '300px', threshold: 0 });
+
+                slots.forEach(s => observer.observe(s));
             }
 
             // Filtering
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-pink-400', 'text-white');
-                        b.classList.add('bg-white', 'text-slate-600', 'hover:bg-pink-50', 'hover:text-pink-500');
+                        b.classList.remove('bg-black', 'text-white');
+                        b.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-100', 'hover:text-black');
                     });
-                    btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-pink-50', 'hover:text-pink-500');
-                    btn.classList.add('bg-pink-400', 'text-white');
+                    btn.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-100', 'hover:text-black');
+                    btn.classList.add('bg-black', 'text-white');
 
                     const category = btn.getAttribute('data-filter');
                     const filtered = category === 'all' ? currentData : currentData.filter(d => d.category.includes(category));
