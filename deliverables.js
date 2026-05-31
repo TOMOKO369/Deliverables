@@ -242,5 +242,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/14b8a6/ffffff?text=Kids+Planner",
     "description": "現在時刻天気持ち物時間割一括管理",
     "link": "https://tomoko369.github.io/timetable/"
+  },
+  {
+    "id": 33,
+    "title": "連絡事項サイト（担任・通級・デイサービス）",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/6366f1/ffffff?text=Contact+Note",
+    "description": "報告事項を記載し、連絡した先（担任、通級、発達放課後デイサービス）をチェックして記録するGASツール。（GASのためローカルで動くのでWEBサイトはございません）",
+    "link": "#"
   }
 ];
