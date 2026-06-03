@@ -387,11 +387,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'bg-surface-container-high text-on-surface';
     }
 
+    // 固定表示する項目のID（この順番で常に先頭に表示）
+    const PINNED_IDS = [8, 9, 17, 3];
+
     function renderCards(filter = 'all') {
         galleryGrid.innerHTML = '';
-        const filtered = filter === 'all'
-            ? currentData
-            : currentData.filter(p => p.category.includes(filter));
+
+        const pinned = PINNED_IDS.map(id => currentData.find(p => p.id === id)).filter(Boolean);
+        const rest = currentData.filter(p => !PINNED_IDS.includes(p.id));
+
+        const applyFilter = (list) => filter === 'all'
+            ? list
+            : list.filter(p => p.category.includes(filter));
+
+        const filtered = [...applyFilter(pinned), ...applyFilter(rest)];
 
         filtered.forEach(item => {
             const isLink = item.link && item.link !== '#' && !item.link.startsWith('#');
