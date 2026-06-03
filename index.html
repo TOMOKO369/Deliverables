@@ -1,960 +1,557 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3週間前まで「コードって何？」だった私が、AIと一緒に作った成果物たち。</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                // Override default font families directly
-                fontFamily: {
-                    sans: ['"M PLUS 1p"', 'sans-serif'],
-                    display: ['"M PLUS 1p"', 'sans-serif'],
-                    zen: ['"M PLUS 1p"', 'sans-serif'],
-                    body: ['"M PLUS 1p"', 'sans-serif'],
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio — 若林朋凛</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-highest": "#e5e7eb",
+                    "secondary-fixed": "#e4e4e7",
+                    "on-tertiary": "#000000",
+                    "tertiary-container": "#f4f4f5",
+                    "primary-container": "#f4f4f5",
+                    "on-secondary-container": "#18181b",
+                    "surface-container": "#f9fafb",
+                    "outline": "#d4d4d8",
+                    "secondary-container": "#f4f4f5",
+                    "primary": "#000000",
+                    "surface-tint": "#000000",
+                    "on-primary-fixed": "#ffffff",
+                    "surface": "#ffffff",
+                    "surface-dim": "#f4f4f5",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#f4f4f5",
+                    "surface-container-low": "#fafafa",
+                    "on-surface-variant": "#52525b",
+                    "surface-container-high": "#e4e4e7",
+                    "on-primary-container": "#000000",
+                    "background": "#ffffff",
+                    "on-background": "#000000",
+                    "on-surface": "#000000",
+                    "surface-bright": "#ffffff"
                 },
-                extend: {
-                    colors: {
-                        primary: '#f472b6',
-                        secondary: '#a78bfa',
-                        accent: '#fcd34d',
-                        pastel: {
-                            bg: '#fff5f7',
-                            card: '#ffffff',
-                            text: '#475569',
-                            muted: '#94a3b8'
-                        }
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 6px -1px rgba(244, 114, 182, 0.1), 0 2px 4px -1px rgba(244, 114, 182, 0.06)',
-                    }
+                borderRadius: {
+                    DEFAULT: "0.25rem",
+                    lg: "0.5rem",
+                    xl: "0.75rem",
+                    full: "9999px"
+                },
+                spacing: {
+                    unit: "8px",
+                    gutter: "24px",
+                    "margin-desktop": "64px",
+                    "max-width": "1280px",
+                    "margin-mobile": "16px"
+                },
+                fontFamily: {
+                    "headline-lg-mobile": ["Noto Sans JP", "sans-serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "headline-lg": ["Noto Sans JP", "sans-serif"],
+                    "display-lg": ["Noto Sans JP", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"],
+                    "headline-md": ["Noto Sans JP", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"]
+                },
+                fontSize: {
+                    "headline-lg-mobile": ["28px", {lineHeight:"36px", fontWeight:"700"}],
+                    "label-md": ["14px", {lineHeight:"20px", fontWeight:"600"}],
+                    "headline-lg": ["32px", {lineHeight:"40px", fontWeight:"700"}],
+                    "display-lg": ["48px", {lineHeight:"56px", letterSpacing:"-0.02em", fontWeight:"800"}],
+                    "body-md": ["16px", {lineHeight:"24px", fontWeight:"400"}],
+                    "headline-md": ["24px", {lineHeight:"32px", fontWeight:"700"}],
+                    "body-lg": ["18px", {lineHeight:"28px", fontWeight:"400"}]
                 }
             }
         }
-    </script>
-    <style>
-        @font-face {
-            font-family: 'F66MacaronR';
-            src: url('./F66MacaronR.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        min-height: max(884px, 100dvh);
+    }
 
-        /* Force apply font to everything */
-        html,
-        body,
-        div,
-        span,
-        applet,
-        object,
-        iframe,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        blockquote,
-        pre,
-        a,
-        abbr,
-        acronym,
-        address,
-        big,
-        cite,
-        code,
-        del,
-        dfn,
-        em,
-        img,
-        ins,
-        kbd,
-        q,
-        s,
-        samp,
-        small,
-        strike,
-        strong,
-        sub,
-        sup,
-        tt,
-        var,
-        b,
-        u,
-        center,
-        dl,
-        dt,
-        dd,
-        ol,
-        ul,
-        li,
-        fieldset,
-        form,
-        label,
-        legend,
-        table,
-        caption,
-        tbody,
-        tfoot,
-        thead,
-        tr,
-        th,
-        td,
-        article,
-        aside,
-        canvas,
-        details,
-        embed,
-        figure,
-        figcaption,
-        footer,
-        header,
-        hgroup,
-        menu,
-        nav,
-        output,
-        ruby,
-        section,
-        summary,
-        time,
-        mark,
-        audio,
-        video,
-        button,
-        input,
-        select,
-        textarea {
-            font-family: 'M PLUS 1p', 'Noto Sans JP', sans-serif !important;
-        }
-
-        body {
-            background-color: #f8f8f8;
-            min-height: 100vh;
-            color: #1a1a1a;
-        }
-
-        .hero-pattern {
-            background-color: transparent;
-            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        .text-stroke-white {
-            -webkit-text-stroke: 4px white;
-            paint-order: stroke fill;
-            color: #111111;
-            font-family: 'M PLUS 1p', sans-serif !important;
-        }
-
-        .card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #e5e7eb;
-        }
-
-        .card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.06);
-            border-color: #111111;
-        }
-
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.25);
-        }
-
-        .admin-modal {
-            background-color: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(8px);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f3f4f6;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #d1d5db;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
-        }
-    </style>
+    /* iframe live preview in card */
+    .iframe-thumbnail-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .group:hover .iframe-thumbnail-wrapper {
+        transform: scale(1.05);
+    }
+    .iframe-thumbnail-wrapper iframe {
+        width: 400%;
+        height: 400%;
+        transform: scale(0.25);
+        transform-origin: 0 0;
+        border: none;
+        pointer-events: none;
+        background-color: #ffffff;
+    }
+</style>
 </head>
+<body class="min-h-screen flex flex-col overflow-x-hidden">
 
-<body class="antialiased min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-surface text-primary top-0 border-b border-secondary-container flex justify-between items-center px-gutter w-full h-16 sticky z-50">
+    <div class="flex items-center gap-4">
+        <h1 class="font-headline-md text-headline-md text-primary font-bold">Portfolio</h1>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="hidden md:flex gap-6">
+            <a class="font-headline-md text-headline-md text-primary font-bold hover:text-on-surface-variant transition-colors" href="#gallery-grid">Gallery</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#profile">Profile</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#contact-section">Contact</a>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline cursor-pointer active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-on-surface-variant">person</span>
+        </div>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <header class="hero-pattern relative overflow-hidden border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
-            <p class="font-display text-xl md:text-3xl font-bold text-gray-500 mb-4 tracking-tight">
-                行政・職業訓練校での指導実績があり／２５個のシステムを自ら開発・実装
-            </p>
-            <h1
-                class="font-display text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight animate-fade-in-down drop-shadow-sm leading-tight">
-                3週間前まで「コードって何？」だった私が、AIと一緒に作った成果物たち。
-            </h1>
-            <h2 class="text-xl md:text-2xl text-gray-600 font-bold mb-8">
-                「私には無理」を卒業。知識ゼロの主婦がAIを相棒にして、ゼロから形にした「できた！」の記録。
+<!-- Main -->
+<main class="flex-grow max-w-screen-max-width mx-auto w-full px-margin-mobile md:px-margin-desktop py-10 pb-24 md:pb-10">
+
+    <!-- Hero & Filter -->
+    <section class="mb-12 text-center">
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-2">行政・職業訓練校での指導実績あり／AIと共に作った成果物たち</p>
+        <h2 class="font-display-lg text-display-lg mb-4 text-primary">Portfolio</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            コード未経験からAIを相棒にして、ゼロから形にした「できた！」の記録。
+        </p>
+        <div class="w-16 h-1 bg-primary mx-auto my-8"></div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mt-8 mb-4" id="filter-nav">
+            <button class="filter-btn bg-primary text-white px-4 py-2 rounded-full font-bold text-sm transition-colors border border-primary" data-filter="all">すべて</button>
+            <button class="filter-btn bg-surface text-primary border border-outline px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors" data-filter="Webサイト">Webサイト</button>
+            <button class="filter-btn bg-surface text-primary border border-outline px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors" data-filter="拡張機能">拡張機能</button>
+            <button class="filter-btn bg-surface text-primary border border-outline px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors" data-filter="GAS">GAS</button>
+            <button class="filter-btn bg-surface text-primary border border-outline px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors" data-filter="音声ツール">音声ツール</button>
+            <button class="filter-btn bg-surface text-primary border border-outline px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors" data-filter="デザイン">デザイン</button>
+        </div>
+    </section>
+
+    <!-- Admin add button (hidden until logged in) -->
+    <div id="admin-controls" class="hidden mb-8 text-center">
+        <button id="add-item-btn"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full shadow-lg hover:opacity-80 transition">
+            <span class="material-symbols-outlined" style="font-size:18px;">add</span> 新しい成果物を追加
+        </button>
+    </div>
+
+    <!-- Gallery -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid"></div>
+
+    <!-- Profile Section -->
+    <div id="profile" class="mt-24 border-t border-secondary-fixed pt-16 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <div class="inline-block p-0.5 rounded-full bg-surface-container-highest mb-6">
+                <div class="bg-white p-0.5 rounded-full">
+                    <img src="./profile.png" alt="若林朋凛" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover">
+                </div>
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-1">若林 朋凛</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Wakabayashi Tomorin — コード未経験から作れる人にするGoogle×AI講師</p>
+
+            <!-- SNS Links -->
+            <div class="flex justify-center gap-3 mb-8">
+                <a href="https://x.com/ZibunDokyumenta?t=WQZrbnHFuWr7XRMUogCbEA&s=09" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:opacity-70 transition font-bold text-sm" title="X">X</a>
+                <a href="https://www.instagram.com/tomo.rin.comics/?igsh=MWh3bnc5MGloODV3" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-on-surface-variant text-white rounded-full flex items-center justify-center hover:opacity-70 transition" title="Instagram">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://note.com/language123" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-on-surface-variant text-white rounded-full flex items-center justify-center hover:opacity-70 transition font-bold text-sm" title="note">N</a>
+                <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:opacity-70 transition" title="YouTube">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://stand.fm/channels/6860f45cead4839325c49e8f" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-on-surface-variant text-white rounded-full flex items-center justify-center hover:opacity-70 transition" title="Stand.fm">
+                    <span class="material-symbols-outlined" style="font-size:18px;">mic</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-16">
+            <div class="bg-surface-container-low rounded-xl p-6 border border-secondary-fixed">
+                <h3 class="font-headline-md text-headline-md text-primary mb-2 text-center">行政在宅テレワーク講座講師</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant text-center">これからの働き方をサポート。在宅ワークの基礎から実践までを丁寧に指導しています。</p>
+            </div>
+            <div class="bg-surface-container-low rounded-xl p-6 border border-secondary-fixed">
+                <h3 class="font-headline-md text-headline-md text-primary mb-2 text-center">職業訓練校動画講師</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant text-center">わかりやすい動画教材の作成と指導を担当。初心者にも優しい解説を心がけています。</p>
+            </div>
+        </div>
+
+        <!-- Spotify -->
+        <div class="mb-12">
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/show/2ya0GcdToFCqCwCKDmZUyL?utm_source=generator"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+        </div>
+
+        <!-- YouTube -->
+        <div class="mb-12">
+            <iframe style="border-radius:12px" width="100%" height="352"
+                src="https://www.youtube.com/embed/YR34Mait5NY" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen class="border border-secondary-fixed"></iframe>
+            <div class="text-center mt-2">
+                <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" target="_blank"
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline">
+                    チャンネルを直接見る →
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <section id="contact-section" class="bg-surface-container-low rounded-xl p-8 md:p-10 border border-secondary-fixed">
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-8 text-center flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">mail</span> お問い合わせ
             </h2>
-            <p class="text-base md:text-lg text-gray-500 max-w-3xl mx-auto font-light leading-relaxed mb-6">
-                難しいプログラミング言語の暗記は一切していません。<br>
-                やったことは、AIに私の「作りたい！」を相談しただけ。<br>
-                家事や育児のスキマ時間を使って、魔法のようにアプリやサイトが出来上がっていくワクワクを、あなたにもお裾分けしたくてこのサイトを作りました。
-            </p>
-        </div>
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-gray-300/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl"></div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        <div class="max-w-7xl mx-auto">
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-container">
-                <button
-                    class="filter-btn active px-5 py-2 rounded-full bg-black text-white font-medium shadow-md hover:bg-gray-800 transition"
-                    data-filter="all">すべて</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="Webアプリ">Webアプリ</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="Webサイト">Webサイト</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="音声ツール">音声ツール</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="デザイン">デザイン</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="動画">動画</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="拡張機能">拡張機能</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium shadow-sm border border-gray-200 hover:bg-gray-100 hover:text-black transition"
-                    data-filter="GAS">GAS</button>
-            </div>
-
-            <!-- Add Button (Admin Only) -->
-            <div id="admin-controls" class="hidden mb-8 text-center">
-                <button id="add-item-btn"
-                    class="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1">
-                    <i class="fas fa-plus mr-2"></i> 新しい成果物を追加
+            <form id="contact-form" class="max-w-lg mx-auto space-y-6">
+                <p class="font-body-md text-body-md text-on-surface-variant text-center text-sm">※営業・セールス等のメールはご遠慮ください。</p>
+                <div>
+                    <label for="name" class="block font-label-md text-label-md text-on-surface mb-2">お名前</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-3 bg-surface border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                        placeholder="例: 山田 花子">
+                </div>
+                <div>
+                    <label for="message" class="block font-label-md text-label-md text-on-surface mb-2">お問い合わせ内容</label>
+                    <textarea id="message" name="message" required rows="5"
+                        class="w-full px-4 py-3 bg-surface border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none"
+                        placeholder="ご質問やご依頼内容をご記入ください"></textarea>
+                </div>
+                <button type="submit" id="submit-btn"
+                    class="w-full py-4 bg-primary hover:opacity-80 text-white font-bold rounded-full transition flex items-center justify-center gap-2">
+                    <span id="btn-text">送信する</span>
+                    <span class="material-symbols-outlined" style="font-size:18px;">send</span>
                 </button>
+            </form>
+            <div id="success-message" class="hidden text-center py-8">
+                <span class="material-symbols-outlined text-primary mb-4 block" style="font-size:48px;">check_circle</span>
+                <h3 class="font-headline-md text-headline-md text-primary mb-2">送信完了しました！</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">お問い合わせありがとうございます。<br>内容を確認次第、ご連絡させていただきます。</p>
             </div>
+        </section>
+    </div>
 
-            <!-- Gallery Grid -->
-            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Cards injected here -->
-            </div>
+    <!-- Footer accent -->
+    <div class="mt-20 flex justify-center">
+        <div class="text-center">
+            <span class="material-symbols-outlined text-primary mb-2 block" style="font-size:40px;">auto_awesome</span>
+            <p class="font-headline-md text-headline-md text-primary">AIと歩む、新しい形</p>
         </div>
+    </div>
+</main>
 
-        <!-- Self Introduction & Profile Section (Integrated) -->
-        <div id="profile" class="mt-24 border-t border-gray-200 pt-16 max-w-5xl mx-auto font-zen">
+<!-- Footer -->
+<footer class="border-t border-secondary-fixed py-6 text-center">
+    <p class="font-body-md text-body-md text-on-surface-variant mb-2">&copy; 2026 Wakabayashi Tomorin. All rights reserved.</p>
+    <button id="admin-login-btn" class="font-label-md text-label-md text-surface-container-highest hover:text-on-surface-variant transition-colors">
+        <span class="material-symbols-outlined align-middle" style="font-size:14px;">lock</span> 管理者用
+    </button>
+</footer>
 
-            <div class="text-center mb-12">
-                <div
-                    class="inline-block p-1 rounded-full bg-gradient-to-tr from-gray-300 via-gray-400 to-gray-200 mb-6">
-                    <div class="bg-white p-1 rounded-full">
-                        <img src="./profile.png" alt="若林朋凛" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover">
-                    </div>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-2">
-                    若林 朋凛 <span class="text-gray-500 text-lg font-normal ml-2 font-display">Wakabayashi Tomorin</span>
-                </h2>
-                <p class="text-lg text-gray-500 font-medium mb-6">コード未経験から作れる人にするGoogle×AI講師</p>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface border-t border-secondary-container shadow-lg flex justify-around items-center h-16 px-4">
+    <a href="#gallery-grid" class="flex flex-col items-center justify-center bg-surface-container-highest text-primary rounded-xl px-4 py-1 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">explore</span>
+        <span class="font-label-md text-label-md">Gallery</span>
+    </a>
+    <a href="#profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-label-md text-label-md">Profile</span>
+    </a>
+    <a href="#contact-section" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+        <span class="material-symbols-outlined">mail</span>
+        <span class="font-label-md text-label-md">Contact</span>
+    </a>
+</nav>
 
-                <!-- SNS Links -->
-                <div class="flex justify-center gap-4 mb-8">
-                    <a href="https://x.com/ZibunDokyumenta?t=WQZrbnHFuWr7XRMUogCbEA&s=09" target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md font-bold text-xl font-sans"
-                        title="X (Twitter)">
-                        X
-                    </a>
-                    <a href="https://www.instagram.com/tomo.rin.comics/?igsh=MWh3bnc5MGloODV3" target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
-                        title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://note.com/language123" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
-                        title="note">
-                        <i class="fas fa-book-open"></i>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
-                        title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://stand.fm/channels/6860f45cead4839325c49e8f" target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 bg-gray-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-md"
-                        title="Stand.fm">
-                        <i class="fas fa-microphone"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-16">
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <h3 class="font-bold text-lg mb-2 text-gray-900 text-center">行政在宅テレワーク講座講師</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed text-center">
-                        これからの働き方をサポート。在宅ワークの基礎から実践までを丁寧に指導しています。</p>
-                </div>
-
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <h3 class="font-bold text-lg mb-2 text-gray-900 text-center">職業訓練校動画講師</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed text-center">
-                        わかりやすい動画教材の作成と指導を担当。初心者にも優しい解説を心がけています。</p>
-                </div>
-
-
-            </div>
-
-            <!-- Spotify Embed -->
-            <div class="mb-16">
-                <iframe data-testid="embed-iframe" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/show/2ya0GcdToFCqCwCKDmZUyL?utm_source=generator" width="100%"
-                    height="352" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
-            </div>
-
-            <!-- YouTube Latest Video Embed -->
-            <div class="mb-16">
-                <iframe style="border-radius:12px" width="100%" height="352"
-                    src="https://www.youtube.com/embed/YR34Mait5NY" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen class="border border-gray-100 bg-white"></iframe>
-                <div class="text-center mt-2">
-                    <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" target="_blank"
-                        class="text-sm text-gray-500 hover:text-gray-800 hover:underline">
-                        <i class="fab fa-youtube mr-1"></i> チャンネルを直接見る
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <section class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-200 relative overflow-hidden"
-                id="contact-section">
-                <div
-                    class="absolute top-0 right-0 w-32 h-32 bg-gray-100/50 rounded-bl-full -mr-8 -mt-8 pointer-events-none">
-                </div>
-                <h2
-                    class="text-2xl font-bold text-center text-gray-900 mb-8 flex items-center justify-center gap-2 relative z-10">
-                    <i class="fas fa-envelope text-gray-500"></i> お問い合わせ
-                </h2>
-                <form id="contact-form" class="max-w-lg mx-auto space-y-6 relative z-10">
-                    <p class="text-xs text-gray-400 text-center -mb-2">※営業・セールス等のメールはご遠慮ください。</p>
-                    <div>
-                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">お名前</label>
-                        <input type="text" id="name" name="name" required
-                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition"
-                            placeholder="例: 山田 花子">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-bold text-gray-700 mb-2">お問い合わせ内容</label>
-                        <textarea id="message" name="message" required rows="5"
-                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition resize-none"
-                            placeholder="ご質問やご依頼内容をご記入ください"></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn"
-                        class="w-full py-4 bg-black hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
-                        <span id="btn-text">送信する</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-                <div id="success-message" class="hidden text-center py-8">
-                    <div
-                        class="w-16 h-16 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl animate-bounce">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">送信完了しました！</h3>
-                    <p class="text-gray-500">お問い合わせありがとうございます。<br>内容を確認次第、ご連絡させていただきます。</p>
-                </div>
-            </section>
-        </div>
-
-    </main>
-
-    <footer class="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-12 py-8 relative">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 mb-4 font-light">&copy; 2026 Wakabayashi Tomorin. All rights reserved.</p>
-            <button id="admin-login-btn" class="text-gray-300 hover:text-gray-600 transition-colors text-sm"
-                title="管理者ログイン">
-                <i class="fas fa-lock"></i> 管理者用
+<!-- Admin Modal -->
+<div id="admin-modal" class="fixed inset-0 hidden flex items-center justify-center z-[100] p-4" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);">
+    <div class="bg-surface rounded-xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 border border-secondary-fixed" id="modal-content">
+        <div class="bg-surface-container-low px-6 py-4 border-b border-secondary-fixed flex justify-between items-center">
+            <h3 class="font-headline-md text-headline-md text-primary">成果物を追加</h3>
+            <button id="close-modal" class="text-on-surface-variant hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
             </button>
         </div>
-    </footer>
-
-    <!-- Preview Modal -->
-    <div id="preview-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center z-50 p-2 md:p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-6xl flex flex-col overflow-hidden" style="height: 88vh;">
-            <div class="bg-gray-50 px-4 md:px-6 py-3 border-b border-gray-200 flex justify-between items-center flex-shrink-0">
-                <h3 id="preview-title" class="text-base md:text-lg font-bold text-gray-900 truncate flex-1 mr-4"></h3>
-                <div class="flex gap-3 items-center flex-shrink-0">
-                    <a id="preview-external-link" href="#" target="_blank" rel="noopener noreferrer"
-                        class="text-sm text-gray-600 hover:text-black hover:underline flex items-center gap-1 whitespace-nowrap">
-                        <i class="fas fa-external-link-alt"></i> <span class="hidden sm:inline">別タブで開く</span>
-                    </a>
-                    <button id="close-preview" class="text-gray-400 hover:text-black text-xl w-8 h-8 flex items-center justify-center">
-                        <i class="fas fa-times"></i>
-                    </button>
+        <div class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+            <form id="add-item-form" class="space-y-4">
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1">タイトル</label>
+                    <input type="text" id="input-title"
+                        class="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                        placeholder="例: 新しいプロジェクト" required>
                 </div>
-            </div>
-            <div class="flex-1 overflow-hidden relative">
-                <div id="preview-loading" class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">
-                    <div class="text-center">
-                        <div class="w-12 h-12 border-4 border-gray-200 border-t-gray-700 rounded-full animate-spin mx-auto mb-4"></div>
-                        <p class="text-gray-500 text-sm">読み込み中...</p>
-                    </div>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1">カテゴリ</label>
+                    <select id="input-category"
+                        class="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary outline-none" required>
+                        <option value="Webアプリ">Webアプリ</option>
+                        <option value="Webサイト">Webサイト</option>
+                        <option value="音声ツール">音声ツール</option>
+                        <option value="デザイン">デザイン</option>
+                        <option value="動画">動画</option>
+                        <option value="拡張機能">拡張機能</option>
+                        <option value="GAS">GAS</option>
+                    </select>
                 </div>
-                <div id="preview-blocked" class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10 hidden">
-                    <div class="text-center px-6">
-                        <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-external-link-alt text-2xl text-gray-500"></i>
-                        </div>
-                        <p class="text-gray-700 font-bold mb-2">このサイトはiframe表示に対応していません</p>
-                        <p class="text-gray-400 text-sm mb-4">セキュリティ設定により、直接プレビューできません。</p>
-                        <a id="preview-blocked-link" href="#" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition">
-                            <i class="fas fa-external-link-alt"></i> 別タブで開く
-                        </a>
-                    </div>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1">画像URL（ローカル専用ツール用）</label>
+                    <input type="url" id="input-image"
+                        class="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                        placeholder="https://..." value="https://placehold.co/600x400/333333/ffffff?text=New+Item">
                 </div>
-                <iframe id="preview-iframe" src="" class="w-full h-full border-0" allow="autoplay; fullscreen"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"></iframe>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1">リンクURL</label>
+                    <input type="url" id="input-link"
+                        class="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                        placeholder="https://..." required>
+                </div>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1">説明文</label>
+                    <textarea id="input-desc"
+                        class="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary outline-none h-24 resize-none"
+                        placeholder="短い説明文を入力..." required></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 bg-primary text-white font-bold rounded-full hover:opacity-80 transition">
+                    リストに追加 &amp; コード生成
+                </button>
+            </form>
+            <div id="export-area" class="hidden mt-6 pt-6 border-t border-secondary-fixed">
+                <p class="font-label-md text-label-md text-green-600 mb-2">
+                    <span class="material-symbols-outlined align-middle" style="font-size:14px;">check_circle</span>
+                    追加されました！以下のコードを deliverables.js に上書きしてください：
+                </p>
+                <textarea id="export-code" class="w-full h-32 p-3 bg-on-surface text-green-400 font-mono text-xs rounded-lg mb-2" readonly></textarea>
+                <button id="copy-code-btn" class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline">クリップボードにコピー</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Admin Modal -->
-    <div id="admin-modal" class="fixed inset-0 admin-modal hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 border border-gray-200"
-            id="modal-content">
-            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                <h3 class="text-lg font-bold text-gray-900" id="modal-title">成果物を追加</h3>
-                <button id="close-modal" class="text-gray-400 hover:text-black"><i
-                        class="fas fa-times"></i></button>
-            </div>
-            <div class="p-6 space-y-4">
-                <form id="add-item-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">タイトル</label>
-                        <input type="text" id="input-title"
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition"
-                            placeholder="例: 新しいプロジェクト" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">カテゴリ</label>
-                        <select id="input-category"
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
-                            required>
-                            <option value="Webアプリ">Webアプリ</option>
-                            <option value="Webサイト">Webサイト</option>
-                            <option value="音声ツール">音声ツール</option>
-                            <option value="デザイン">デザイン</option>
-                            <option value="動画">動画</option>
-                            <option value="拡張機能">拡張機能</option>
-                            <option value="GAS">GAS</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">画像URL</label>
-                        <input type="url" id="input-image"
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
-                            placeholder="https://..." value="https://placehold.co/600x400/333333/ffffff?text=New+Item">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">リンクURL</label>
-                        <input type="url" id="input-link"
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none"
-                            placeholder="https://..." required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">説明文</label>
-                        <textarea id="input-desc"
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-400 outline-none h-24 resize-none"
-                            placeholder="短い説明文を入力..." required></textarea>
-                    </div>
-                    <button type="submit"
-                        class="w-full py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition shadow-md">
-                        リストに追加 & コード生成
-                    </button>
-                </form>
+<!-- Data -->
+<script src="deliverables.js?v=20260603"></script>
 
-                <!-- Code Export Area -->
-                <div id="export-area" class="hidden mt-6 pt-6 border-t border-gray-100">
-                    <p class="text-sm text-green-600 font-bold mb-2"><i class="fas fa-check-circle"></i>
-                        追加されました！以下のコードを deliverables.js に上書きしてください：</p>
-                    <textarea id="export-code"
-                        class="w-full h-32 p-3 bg-gray-900 text-green-400 font-mono text-xs rounded-lg mb-2"
-                        readonly></textarea>
-                    <button id="copy-code-btn" class="text-sm text-gray-600 hover:underline">クリップボードにコピー</button>
+<script>
+const ADMIN_PASSWORD = "admin";
+
+document.addEventListener('DOMContentLoaded', () => {
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
+
+    if (!sessionStorage.getItem('visited')) {
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content: `📢 **My Deliverables** に新しいアクセスがありました！\n時間: ${new Date().toLocaleString('ja-JP')}` })
+        }).catch(() => {});
+        sessionStorage.setItem('visited', 'true');
+    }
+
+    const galleryGrid = document.getElementById('gallery-grid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let currentData = window.deliverablesData || [];
+
+    function getTagClasses(category) {
+        if (category.includes('Webサイト')) return 'bg-tertiary-container text-on-tertiary';
+        if (category.includes('GAS')) return 'bg-primary-container text-on-primary-container';
+        if (category.includes('拡張機能')) return 'bg-secondary-container text-on-secondary-container';
+        return 'bg-surface-container-high text-on-surface';
+    }
+
+    function renderCards(filter = 'all') {
+        galleryGrid.innerHTML = '';
+        const filtered = filter === 'all'
+            ? currentData
+            : currentData.filter(p => p.category.includes(filter));
+
+        filtered.forEach(item => {
+            const isLink = item.link && item.link !== '#' && !item.link.startsWith('#');
+            const card = document.createElement(isLink ? 'a' : 'div');
+            if (isLink) {
+                card.href = item.link;
+                card.target = '_blank';
+                card.rel = 'noopener noreferrer';
+            }
+            card.className = 'flex flex-col bg-surface-container-low rounded-xl border border-secondary-fixed overflow-hidden hover:shadow-lg transition-all duration-300 group ' + (isLink ? 'cursor-pointer' : '');
+            card.dataset.title = item.title;
+            card.dataset.link = item.link;
+
+            const mediaHtml = isLink
+                ? `<div class="iframe-thumbnail-wrapper"><iframe src="${item.link}" scrolling="no" tabindex="-1" loading="lazy" title="${item.title}"></iframe></div>`
+                : `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" loading="lazy">`;
+
+            card.innerHTML = `
+                <div class="aspect-video relative overflow-hidden bg-surface-variant">
+                    ${mediaHtml}
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex justify-between items-start mb-3 gap-2">
+                        <h3 class="font-headline-md text-headline-md text-primary leading-tight">${item.title}</h3>
+                        <span class="${getTagClasses(item.category)} px-3 py-1 rounded-full text-[12px] font-bold whitespace-nowrap">${item.category}</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${item.description}</p>
+                    ${!isLink ? `<span class="mt-3 inline-flex items-center gap-1 font-label-md text-label-md text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:16px;">laptop_mac</span> ローカル専用ツール</span>` : ''}
+                </div>
+            `;
+            galleryGrid.appendChild(card);
+        });
+    }
 
-    <!-- Data Loader -->
-    <script src="deliverables.js?v=20260311-1959"></script>
+    renderCards();
 
-    <script>
-        // Configuration
-        const ADMIN_PASSWORD = "admin"; // 簡易パスワード
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Discord Webhook Notification on Load
-            // const WEBHOOK_URL_VISIT = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
-            /* 
-            // Temporarily disabled per standard logic or if user wants to keep it
-            // Let's keep existing logic if it was requested previously, assuming user wants it.
-            // But since we are pasting a big block, I'll re-include the notification logic 
-            */
-            const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
-
-            if (!sessionStorage.getItem('visited')) {
-                fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        content: `📢 **My Deliverables** に新しいアクセスがありました！\n時間: ${new Date().toLocaleString('ja-JP')}`
-                    })
-                }).catch(err => console.error('Webhook Error:', err));
-
-                sessionStorage.setItem('visited', 'true');
-            }
-
-            const gallery = document.getElementById('gallery');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-
-            // Initialization
-            let currentData = window.deliverablesData || [];
-            renderCards(currentData);
-
-            // Automatically scroll to profile section on load as requested
-            const profileSection = document.getElementById('profile');
-            if (profileSection) {
-                // Use a small timeout to ensure rendering is stable
-                setTimeout(() => {
-                    profileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 500);
-            }
-
-            // ========================
-            // Core Functionality
-            // ========================
-            function renderCards(data) {
-                gallery.innerHTML = '';
-                if (data.length === 0) {
-                    gallery.innerHTML = '<p class="col-span-full text-center text-slate-500 py-12">成果物が見つかりません</p>';
-                    return;
-                }
-
-                data.forEach((item, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col h-full opacity-0';
-                    card.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
-                    card.dataset.title = item.title;
-                    card.dataset.link = item.link;
-
-                    const isLocalOnly = item.link === '#' || item.link === '#contact-section';
-                    card.innerHTML = `
-        <div class="card-img-area relative overflow-hidden group bg-gray-100 ${!isLocalOnly ? 'cursor-pointer' : ''}" style="height:220px;" ${!isLocalOnly ? 'data-action="preview"' : ''}>
-            <img src="${item.image}" alt="${item.title}" class="preview-fallback absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500">
-            ${!isLocalOnly ? `<div class="preview-frame-slot absolute inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-700" data-url="${item.link}"></div>
-            <div class="preview-spinner absolute inset-0 z-30 flex items-center justify-center bg-gray-50/80 pointer-events-none">
-                <div class="w-6 h-6 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
-            </div>` : ''}
-            <div class="absolute top-3 left-3 z-40">
-                <span class="bg-black/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-white shadow-sm uppercase tracking-wide">
-                    ${item.category}
-                </span>
-            </div>
-            ${!isLocalOnly ? `
-            <div class="absolute inset-0 z-50 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center pointer-events-none">
-                <span class="opacity-0 group-hover:opacity-100 bg-white text-black font-bold px-4 py-2 rounded-full shadow-lg transition-all duration-300 transform scale-90 group-hover:scale-100 text-sm">
-                    <i class="fas fa-expand mr-1"></i> 全画面で見る
-                </span>
-            </div>` : ''}
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-            <h3 class="text-base font-bold text-gray-900 mb-1">${item.title}</h3>
-            <p class="text-gray-500 text-xs leading-relaxed mb-3 flex-grow">${item.description}</p>
-            ${isLocalOnly ?
-                `<span class="mt-auto inline-flex items-center justify-center w-full px-4 py-2 bg-gray-100 text-gray-400 font-medium rounded-lg cursor-default text-sm">
-                    <i class="fas fa-laptop-code mr-2"></i>ローカル専用ツール
-                </span>` :
-                `<div class="flex gap-2 mt-auto">
-                    <button data-action="preview" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors text-sm">
-                        <i class="fas fa-expand mr-2"></i>全画面で見る
-                    </button>
-                    <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200 transition-colors" title="別タブで開く">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>`
-            }
-        </div>
-        `;
-                    gallery.appendChild(card);
-                });
-                initCardPreviews();
-            }
-
-            function initCardPreviews() {
-                const slots = document.querySelectorAll('.preview-frame-slot[data-url]:not([data-loaded])');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (!entry.isIntersecting) return;
-                        const slot = entry.target;
-                        if (slot.dataset.loaded) return;
-                        slot.dataset.loaded = '1';
-                        observer.unobserve(slot);
-
-                        const url = slot.dataset.url;
-                        const container = slot.closest('.card-img-area');
-                        const spinner = container?.querySelector('.preview-spinner');
-                        const fallback = container?.querySelector('.preview-fallback');
-
-                        const containerW = container?.offsetWidth || 400;
-                        const containerH = container?.offsetHeight || 220;
-                        const iframeW = 1440;
-                        const scale = containerW / iframeW;
-                        const iframeH = Math.ceil(containerH / scale);
-
-                        const scaler = document.createElement('div');
-                        scaler.style.cssText = `width:${iframeW}px;height:${iframeH}px;transform:scale(${scale});transform-origin:top left;`;
-
-                        const iframe = document.createElement('iframe');
-                        iframe.src = url;
-                        iframe.scrolling = 'no';
-                        iframe.tabIndex = -1;
-                        iframe.style.cssText = `width:${iframeW}px;height:${iframeH}px;border:none;display:block;`;
-                        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
-
-                        let loadTimer = setTimeout(() => {
-                            if (spinner) spinner.style.display = 'none';
-                        }, 10000);
-
-                        iframe.onload = () => {
-                            clearTimeout(loadTimer);
-                            if (spinner) spinner.style.display = 'none';
-                            slot.style.opacity = '1';
-                            if (fallback) { fallback.style.opacity = '0'; fallback.style.pointerEvents = 'none'; }
-                        };
-
-                        scaler.appendChild(iframe);
-                        slot.appendChild(scaler);
-                    });
-                }, { rootMargin: '300px', threshold: 0 });
-
-                slots.forEach(s => observer.observe(s));
-            }
-
-            // Filtering
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => {
-                        b.classList.remove('bg-black', 'text-white');
-                        b.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-100', 'hover:text-black');
-                    });
-                    btn.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-100', 'hover:text-black');
-                    btn.classList.add('bg-black', 'text-white');
-
-                    const category = btn.getAttribute('data-filter');
-                    const filtered = category === 'all' ? currentData : currentData.filter(d => d.category.includes(category));
-                    renderCards(filtered);
-                });
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-primary', 'text-white', 'border-primary');
+                b.classList.add('bg-surface', 'text-primary', 'border-outline');
             });
+            btn.classList.remove('bg-surface', 'text-primary', 'border-outline');
+            btn.classList.add('bg-primary', 'text-white', 'border-primary');
+            renderCards(btn.getAttribute('data-filter'));
+        });
+    });
 
-            // ========================
-            // Contact Form Logic
-            // ========================
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
+    // Contact Form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            if (!name || !message) return;
+            btn.disabled = true;
+            btnText.innerText = "送信中...";
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
 
-                    const btn = document.getElementById('submit-btn');
-                    const btnText = document.getElementById('btn-text');
-                    const name = document.getElementById('name').value;
-                    const message = document.getElementById('message').value;
-
-                    if (!name || !message) return;
-
-                    btn.disabled = true;
-                    btnText.innerText = "送信中...";
-                    btn.classList.add('opacity-75', 'cursor-not-allowed');
-
-                    const payload = {
-                        username: "お問い合わせフォーム",
-                        avatar_url: "https://placehold.co/200x200/f472b6/ffffff?text=Mail",
-                        embeds: [{
-                            title: "📩 新しいお問い合わせ",
-                            color: 16032446,
-                            fields: [
-                                { name: "お名前", value: name, inline: true },
-                                { name: "内容", value: message }
-                            ],
-                            timestamp: new Date().toISOString()
-                        }]
-                    };
-
-                    fetch(WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                document.getElementById('contact-form').classList.add('hidden');
-                                document.getElementById('success-message').classList.remove('hidden');
-                            } else {
-                                alert('送信に失敗しました。');
-                                btn.disabled = false;
-                                btnText.innerText = "送信する";
-                                btn.classList.remove('opacity-75', 'cursor-not-allowed');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('エラーが発生しました。');
-                            btn.disabled = false;
-                            btnText.innerText = "送信する";
-                            btn.classList.remove('opacity-75', 'cursor-not-allowed');
-                        });
-                });
-            }
-
-
-            // ========================
-            // Preview Modal
-            // ========================
-            const previewModal = document.getElementById('preview-modal');
-            const previewIframe = document.getElementById('preview-iframe');
-            const previewTitle = document.getElementById('preview-title');
-            const previewExternalLink = document.getElementById('preview-external-link');
-            const previewLoading = document.getElementById('preview-loading');
-            const previewBlocked = document.getElementById('preview-blocked');
-            const previewBlockedLink = document.getElementById('preview-blocked-link');
-
-            window.openPreview = function(title, url) {
-                previewTitle.textContent = title;
-                previewExternalLink.href = url;
-                previewBlockedLink.href = url;
-                previewLoading.style.display = 'flex';
-                previewBlocked.classList.add('hidden');
-                previewIframe.src = '';
-
-                previewModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-
-                let loadTimeout = setTimeout(() => {
-                    previewLoading.style.display = 'none';
-                    previewBlocked.classList.remove('hidden');
-                }, 8000);
-
-                previewIframe.onload = function() {
-                    clearTimeout(loadTimeout);
-                    try {
-                        const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
-                        if (!iframeDoc || iframeDoc.body.innerHTML === '') {
-                            previewLoading.style.display = 'none';
-                            previewBlocked.classList.remove('hidden');
-                        } else {
-                            previewLoading.style.display = 'none';
-                        }
-                    } catch(e) {
-                        previewLoading.style.display = 'none';
-                    }
-                };
-
-                previewIframe.onerror = function() {
-                    clearTimeout(loadTimeout);
-                    previewLoading.style.display = 'none';
-                    previewBlocked.classList.remove('hidden');
-                };
-
-                previewIframe.src = url;
-            };
-
-            function closePreview() {
-                previewModal.classList.add('hidden');
-                previewIframe.src = '';
-                document.body.style.overflow = '';
-            }
-
-            document.getElementById('close-preview').addEventListener('click', closePreview);
-            previewModal.addEventListener('click', function(e) {
-                if (e.target === previewModal) closePreview();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !previewModal.classList.contains('hidden')) closePreview();
-            });
-
-            gallery.addEventListener('click', function(e) {
-                const trigger = e.target.closest('[data-action="preview"]');
-                if (trigger) {
-                    const card = trigger.closest('.card');
-                    if (card) openPreview(card.dataset.title, card.dataset.link);
-                }
-            });
-
-            // ========================
-            // Admin Functionality
-            // ========================
-            const adminLoginBtn = document.getElementById('admin-login-btn');
-            const adminControls = document.getElementById('admin-controls');
-            const adminModal = document.getElementById('admin-modal');
-            const modalContent = document.getElementById('modal-content');
-            const addItemBtn = document.getElementById('add-item-btn');
-            const closeModalBtn = document.getElementById('close-modal');
-            const addItemForm = document.getElementById('add-item-form');
-            const exportArea = document.getElementById('export-area');
-            const exportCode = document.getElementById('export-code');
-            const copyCodeBtn = document.getElementById('copy-code-btn');
-
-            let isAdmin = false;
-
-            // Login
-            adminLoginBtn.addEventListener('click', () => {
-                if (isAdmin) return;
-                const password = prompt("管理者パスワードを入力してください:");
-                if (password === ADMIN_PASSWORD) {
-                    isAdmin = true;
-                    adminControls.classList.remove('hidden');
-                    adminLoginBtn.innerHTML = '<i class="fas fa-user-shield"></i> 管理者モード中';
-                    adminLoginBtn.classList.remove('text-gray-300');
-                    adminLoginBtn.classList.add('text-gray-700');
-                    alert("管理者としてログインしました。成果物の追加が可能です。");
-                } else if (password !== null) {
-                    alert("パスワードが違います。");
-                }
-            });
-
-            // Open/Close Modal
-            const toggleModal = (show) => {
-                if (show) {
-                    adminModal.classList.remove('hidden');
-                    setTimeout(() => {
-                        modalContent.classList.remove('scale-95', 'opacity-0');
-                        modalContent.classList.add('scale-100', 'opacity-100');
-                    }, 10);
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: "お問い合わせフォーム",
+                    embeds: [{
+                        title: "📩 新しいお問い合わせ",
+                        color: 0,
+                        fields: [
+                            { name: "お名前", value: name, inline: true },
+                            { name: "内容", value: message }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            }).then(r => {
+                if (r.ok) {
+                    contactForm.classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
                 } else {
-                    modalContent.classList.remove('scale-100', 'opacity-100');
-                    modalContent.classList.add('scale-95', 'opacity-0');
-                    setTimeout(() => adminModal.classList.add('hidden'), 300);
+                    alert('送信に失敗しました。');
+                    btn.disabled = false; btnText.innerText = "送信する";
+                    btn.classList.remove('opacity-75', 'cursor-not-allowed');
                 }
-            };
-
-            addItemBtn.addEventListener('click', () => {
-                toggleModal(true);
-                exportArea.classList.add('hidden');
-                addItemForm.reset();
-            });
-
-            closeModalBtn.addEventListener('click', () => toggleModal(false));
-            adminModal.addEventListener('click', (e) => {
-                if (e.target === adminModal) toggleModal(false);
-            });
-
-            // Add Item Logic
-            addItemForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const newItem = {
-                    id: currentData.length + 1,
-                    title: document.getElementById('input-title').value,
-                    category: document.getElementById('input-category').value,
-                    image: document.getElementById('input-image').value,
-                    description: document.getElementById('input-desc').value,
-                    link: document.getElementById('input-link').value
-                };
-
-                // Update Data
-                currentData.push(newItem);
-
-                // Refresh View
-                document.querySelector('[data-filter="all"]').click(); // Reset filter
-                renderCards(currentData);
-
-                // Generate Code
-                const jsonString = JSON.stringify(currentData, null, 2);
-                const jsCode = `window.deliverablesData = ${jsonString};`;
-
-                exportCode.value = jsCode;
-                exportArea.classList.remove('hidden');
-
-                // Scroll to bottom of modal
-                modalContent.parentElement.scrollTo({ top: modalContent.parentElement.scrollHeight, behavior: 'smooth' });
-            });
-
-            // Copy Code
-            copyCodeBtn.addEventListener('click', () => {
-                exportCode.select();
-                document.execCommand('copy');
-                const originalText = copyCodeBtn.innerText;
-                copyCodeBtn.innerText = "コピーしました！";
-                setTimeout(() => copyCodeBtn.innerText = originalText, 2000);
-                alert("コードをコピーしました。\ndeliverables.js ファイルの中身をこのコードで上書き保存してください。");
+            }).catch(() => {
+                alert('エラーが発生しました。');
+                btn.disabled = false; btnText.innerText = "送信する";
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
             });
         });
-    </script>
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    // Admin
+    const adminLoginBtn = document.getElementById('admin-login-btn');
+    const adminControls = document.getElementById('admin-controls');
+    const adminModal = document.getElementById('admin-modal');
+    const modalContent = document.getElementById('modal-content');
+    const addItemBtn = document.getElementById('add-item-btn');
+    const closeModalBtn = document.getElementById('close-modal');
+    const addItemForm = document.getElementById('add-item-form');
+    const exportArea = document.getElementById('export-area');
+    const exportCode = document.getElementById('export-code');
+    const copyCodeBtn = document.getElementById('copy-code-btn');
+    let isAdmin = false;
+
+    adminLoginBtn.addEventListener('click', () => {
+        if (isAdmin) return;
+        const password = prompt("管理者パスワードを入力してください:");
+        if (password === ADMIN_PASSWORD) {
+            isAdmin = true;
+            adminControls.classList.remove('hidden');
+            adminLoginBtn.innerHTML = '<span class="material-symbols-outlined align-middle" style="font-size:14px;">shield</span> 管理者モード中';
+            alert("管理者としてログインしました。");
+        } else if (password !== null) {
+            alert("パスワードが違います。");
         }
+    });
 
-        .animate-fade-in-down {
-            animation: fadeInDown 0.8s ease-out;
+    const toggleModal = (show) => {
+        if (show) {
+            adminModal.classList.remove('hidden');
+            setTimeout(() => { modalContent.classList.remove('scale-95', 'opacity-0'); modalContent.classList.add('scale-100', 'opacity-100'); }, 10);
+        } else {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => adminModal.classList.add('hidden'), 300);
         }
+    };
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+    addItemBtn.addEventListener('click', () => { toggleModal(true); exportArea.classList.add('hidden'); addItemForm.reset(); });
+    closeModalBtn.addEventListener('click', () => toggleModal(false));
+    adminModal.addEventListener('click', (e) => { if (e.target === adminModal) toggleModal(false); });
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    addItemForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newItem = {
+            id: currentData.length + 1,
+            title: document.getElementById('input-title').value,
+            category: document.getElementById('input-category').value,
+            image: document.getElementById('input-image').value,
+            description: document.getElementById('input-desc').value,
+            link: document.getElementById('input-link').value
+        };
+        currentData.push(newItem);
+        renderCards();
+        exportCode.value = `window.deliverablesData = ${JSON.stringify(currentData, null, 2)};`;
+        exportArea.classList.remove('hidden');
+    });
+
+    copyCodeBtn.addEventListener('click', () => {
+        exportCode.select();
+        document.execCommand('copy');
+        const orig = copyCodeBtn.innerText;
+        copyCodeBtn.innerText = "コピーしました！";
+        setTimeout(() => copyCodeBtn.innerText = orig, 2000);
+        alert("コードをコピーしました。\ndeliverables.js ファイルの中身をこのコードで上書き保存してください。");
+    });
+});
+</script>
 </body>
-
 </html>
