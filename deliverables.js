@@ -33,14 +33,6 @@ window.deliverablesData = [
     "link": "https://tomoko369.github.io/teacher/"
   },
   {
-    "id": 17,
-    "title": "問い合わせフォーム",
-    "category": "GAS",
-    "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
-    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）<br><a href='#contact-section' class='text-pink-500 font-bold hover:underline'>私への問い合わせはこちら</a>",
-    "link": "#contact-section"
-  },
-  {
     "id": 22,
     "title": "雑談とビジネス音声配信と動画配信サイト",
     "category": "Webサイト",
@@ -257,6 +249,14 @@ window.deliverablesData = [
     "category": "GAS",
     "image": "https://placehold.co/600x400/6366f1/ffffff?text=Contact+Note",
     "description": "報告事項を記載し、連絡した先（担任、通級、発達放課後デイサービス）をチェックして記録するGASツール。（GASのためローカルで動くのでWEBサイトはございません）",
+    "link": "#"
+  },
+  {
+    "id": 17,
+    "title": "問い合わせフォーム",
+    "category": "GAS",
+    "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
+    "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）",
     "link": "#"
   }
 ];
