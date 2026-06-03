@@ -4,7 +4,7 @@ window.deliverablesData = [
     "title": "がんばらないAIママ研究所",
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/6b7280/ffffff?text=AI+Mama+Lab",
-    "description": "がんばらないAIママ研究所の紹介サイト。",
+    "description": "がんばらないAIママ研究所のサロン紹介サイト。",
     "link": "https://tomoko369.github.io/reservation/about.html"
   },
   {
