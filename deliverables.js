@@ -8,6 +8,22 @@ window.deliverablesData = [
     "link": "https://benevolent-starburst-2f6002.netlify.app/"
   },
   {
+    "id": 37,
+    "title": "QRコード制作サイト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/4b5563/ffffff?text=QR+制作",
+    "description": "シンプルにQRコードを作成できるサイト（外部リンク）。",
+    "link": "https://tomoko369.github.io/qr/QRコード制作サイト"
+  },
+  {
+    "id": 38,
+    "title": "背景、滅",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/000000/ffffff?text=背景",
+    "description": "背景画像を作成・配布するサイト（外部リンク）。",
+    "link": "https://tomoko369.github.io/haikei/#タイトルは背景、滅"
+  },
+  {
     "id": 35,
     "title": "がんばらないAIママ研究所",
     "category": "Webサイト",
