@@ -282,5 +282,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/60a5fa/ffffff?text=Inquiry+Form",
     "description": "サイトに埋め込み可能な、GASベースの高機能問い合わせフォーム。（ローカルで動くのでサイトはありません）",
     "link": "#"
+  },
+  {
+    "id": 39,
+    "title": "動画簡単要約タイムスタンプ",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/f59e0b/ffffff?text=Timestamp",
+    "description": "動画の内容を簡単に要約し、タイムスタンプを生成するWEBサイト。",
+    "link": "https://tomoko369.github.io/timestamp/"
   }
 ];
