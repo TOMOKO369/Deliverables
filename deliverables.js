@@ -1,13 +1,5 @@
 window.deliverablesData = [
   {
-    "id": 36,
-    "title": "QRコード作成サイト",
-    "category": "Webサイト",
-    "image": "https://placehold.co/600x400/4b5563/ffffff?text=QR+Code",
-    "description": "URLやテキストからカスタマイズされたQRコードを生成できるサイト。カラーやスタイルの変更、ロゴ追加にも対応。",
-    "link": "https://tomoko369.github.io/qr/"
-  },
-  {
     "id": 37,
     "title": "QRコード制作サイト",
     "category": "Webサイト",
