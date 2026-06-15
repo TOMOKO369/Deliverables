@@ -276,6 +276,14 @@ window.deliverablesData = [
     "link": "#"
   },
   {
+    "id": 40,
+    "title": "あなたの才能開花診断ツール",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/f472b6/ffffff?text=Talent+Check",
+    "description": "あなたの才能を診断し、開花のヒントを提案するWEBツール。",
+    "link": "https://tomoko369.github.io/JOB/"
+  },
+  {
     "id": 39,
     "title": "動画簡単要約タイムスタンプ",
     "category": "Webサイト",
