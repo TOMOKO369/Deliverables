@@ -5,7 +5,7 @@ window.deliverablesData = [
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/4b5563/ffffff?text=QR+Code",
     "description": "URLやテキストからカスタマイズされたQRコードを生成できるサイト。カラーやスタイルの変更、ロゴ追加にも対応。",
-    "link": "https://benevolent-starburst-2f6002.netlify.app/"
+    "link": "https://tomoko369.github.io/qr/"
   },
   {
     "id": 37,
@@ -13,7 +13,7 @@ window.deliverablesData = [
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/4b5563/ffffff?text=QR+制作",
     "description": "シンプルにQRコードを作成できるサイト（外部リンク）。",
-    "link": "https://tomoko369.github.io/qr/QRコード制作サイト"
+    "link": "https://tomoko369.github.io/qr/"
   },
   {
     "id": 38,
