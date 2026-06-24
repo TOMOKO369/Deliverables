@@ -290,5 +290,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/f59e0b/ffffff?text=Timestamp",
     "description": "動画の内容を簡単に要約し、タイムスタンプを生成するWEBサイト。",
     "link": "https://tomoko369.github.io/timestamp/"
+  },
+  {
+    "id": 41,
+    "title": "外出中の詰み回避マップ（授乳＆補給）",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/782539/ffffff?text=BABY+Map",
+    "description": "ママのピンチを即回避。外出中に授乳室・おむつ替え・ミルク補給場所を都道府県から一発検索できるWebアプリ。",
+    "link": "https://tomoko369.github.io/BABY/"
   }
 ];
