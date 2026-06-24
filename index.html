@@ -374,13 +374,28 @@
 const ADMIN_PASSWORD = "admin";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
+    const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzkuYFGl8ToP_beRfyxY0GS-ubomc-VliN-lz6EWLGegZgGJ1wuPzO4DZBnIb4DFL4/exec";
+
+    function postToGas(payload) {
+        if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL === "YOUR_GAS_WEB_APP_URL") {
+            return Promise.resolve({ ok: false });
+        }
+
+        return fetch(GAS_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+        }).then(() => ({ ok: true }));
+    }
 
     if (!sessionStorage.getItem('visited')) {
-        fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: `📢 **My Deliverables** に新しいアクセスがありました！\n時間: ${new Date().toLocaleString('ja-JP')}` })
+        postToGas({
+            type: 'visit',
+            source: 'My Deliverables',
+            pageUrl: location.href,
+            userAgent: navigator.userAgent,
+            time: new Date().toISOString()
         }).catch(() => {});
         sessionStorage.setItem('visited', 'true');
     }
@@ -472,21 +487,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btnText.innerText = "送信中...";
             btn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: "お問い合わせフォーム",
-                    embeds: [{
-                        title: "📩 新しいお問い合わせ",
-                        color: 0,
-                        fields: [
-                            { name: "お名前", value: name, inline: true },
-                            { name: "内容", value: message }
-                        ],
-                        timestamp: new Date().toISOString()
-                    }]
-                })
+            postToGas({
+                type: 'contact',
+                source: 'My Deliverables',
+                name,
+                message,
+                pageUrl: location.href,
+                time: new Date().toISOString()
             }).then(r => {
                 if (r.ok) {
                     contactForm.classList.add('hidden');

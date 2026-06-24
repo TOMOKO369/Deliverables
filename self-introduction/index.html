@@ -302,7 +302,20 @@
     </footer>
 
     <script>
-        const WEBHOOK_URL = "https://discord.com/api/webhooks/1469594675982897184/T_ZiH54n8d7YY04p5sIzFYRd6hQm9Jzci4o_7w2kaTtvGQfAArcEEGoLrRYiwG15UoIX";
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzkuYFGl8ToP_beRfyxY0GS-ubomc-VliN-lz6EWLGegZgGJ1wuPzO4DZBnIb4DFL4/exec";
+
+        function postToGas(payload) {
+            if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL === "YOUR_GAS_WEB_APP_URL") {
+                return Promise.resolve({ ok: false });
+            }
+
+            return fetch(GAS_WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload)
+            }).then(() => ({ ok: true }));
+        }
 
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -319,25 +332,13 @@
             btn.disabled = true;
             btnText.innerText = "送信中...";
             btn.classList.add('opacity-75', 'cursor-not-allowed');
-
-            const payload = {
-                username: "お問い合わせフォーム",
-                avatar_url: "https://placehold.co/200x200/f472b6/ffffff?text=Mail",
-                embeds: [{
-                    title: "📩 新しいお問い合わせ",
-                    color: 16032446, // Pinkish color
-                    fields: [
-                        { name: "お名前", value: name, inline: true },
-                        { name: "内容", value: message }
-                    ],
-                    timestamp: new Date().toISOString()
-                }]
-            };
-
-            fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+            postToGas({
+                type: 'contact',
+                source: 'Self Introduction',
+                name,
+                message,
+                pageUrl: location.href,
+                time: new Date().toISOString()
             })
                 .then(response => {
                     if (response.ok) {
