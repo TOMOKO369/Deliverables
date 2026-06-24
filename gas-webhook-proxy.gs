@@ -1,5 +1,12 @@
 const DISCORD_WEBHOOK_PROPERTY = 'DISCORD_WEBHOOK_URL';
 
+function doGet() {
+  return jsonResponse_({
+    ok: true,
+    message: 'GAS webhook proxy is running. Send POST requests from the website form.',
+  });
+}
+
 function doPost(e) {
   try {
     const data = parseRequest_(e);
