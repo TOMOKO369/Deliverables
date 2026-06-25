@@ -298,5 +298,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/782539/ffffff?text=BABY+Map",
     "description": "ママのピンチを即回避。外出中に授乳室・おむつ替え・ミルク補給場所を都道府県から一発検索できるWebアプリ。",
     "link": "https://tomoko369.github.io/BABY/"
+  },
+  {
+    "id": 42,
+    "title": "モテメイク診断",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/b40d75/ffffff?text=LUMIÈRE+Makeup",
+    "description": "LUMIÈRE | Personal Makeup Diagnosis。あなたにぴったりのモテメイクを診断するパーソナルメイクアップ診断サイト。",
+    "link": "https://tomoko369.github.io/make/"
   }
 ];
