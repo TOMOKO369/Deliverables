@@ -306,5 +306,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/b40d75/ffffff?text=LUMIÈRE+Makeup",
     "description": "LUMIÈRE | Personal Makeup Diagnosis。あなたにぴったりのモテメイクを診断するパーソナルメイクアップ診断サイト。",
     "link": "https://tomoko369.github.io/make/"
+  },
+  {
+    "id": 43,
+    "title": "時間は消えない。使い道が変わるだけ。",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/6366f1/ffffff?text=時間換算",
+    "description": "SNSや動画に使った時間を、ウォーキング・読書・学習・睡眠に換算して表示します。",
+    "link": "https://tangerine-pavlova-b07f07.netlify.app/"
   }
 ];
