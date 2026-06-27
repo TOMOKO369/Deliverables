@@ -309,10 +309,10 @@ window.deliverablesData = [
   },
   {
     "id": 43,
-    "title": "時間は消えない。使い道が変わるだけ。",
+    "title": "今日の30分は、半年後のあなたをつくる。",
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/6366f1/ffffff?text=時間換算",
-    "description": "SNSや動画に使った時間を、ウォーキング・読書・学習・睡眠に換算して表示します。",
+    "description": "YouTube・SNSを見た時間を入力するだけ。もしその時間でジョギングや読書、勉強をしていたら得られた成果をシミュレーションできます。",
     "link": "https://tangerine-pavlova-b07f07.netlify.app/"
   }
 ];
