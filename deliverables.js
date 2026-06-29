@@ -309,10 +309,10 @@ window.deliverablesData = [
   },
   {
     "id": 43,
-    "title": "今日の30分は、半年後のあなたをつくる。",
+    "title": "まだSNSしてんの！？その時間であなたの人生かわります",
     "category": "Webサイト",
-    "image": "https://placehold.co/600x400/6366f1/ffffff?text=時間換算",
-    "description": "YouTube・SNSを見た時間を入力するだけ。もしその時間でジョギングや読書、勉強をしていたら得られた成果をシミュレーションできます。",
+    "image": "https://placehold.co/600x400/1a1a2e/ffffff?text=SNS+卒業",
+    "description": "SNS卒業サイト「TimeLog」。行動と時間を選んで記録するだけで、無駄にしていた時間を可視化。TIME IS THE ONLY CURRENCY. — Digital Minimalism。",
     "link": "https://tangerine-pavlova-b07f07.netlify.app/"
   }
 ];
