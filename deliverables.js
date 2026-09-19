@@ -314,5 +314,29 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/1a1a2e/ffffff?text=SNS+卒業",
     "description": "SNS卒業サイト「TimeLog」。行動と時間を選んで記録するだけで、無駄にしていた時間を可視化。TIME IS THE ONLY CURRENCY. — Digital Minimalism。",
     "link": "https://tangerine-pavlova-b07f07.netlify.app/"
+  },
+  {
+    "id": 44,
+    "title": "すきまみえる化",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/73b9e9/ffffff?text=すきまみえる化",
+    "description": "スキマ時間を見つけて可視化するタイマー＆花丸カレンダー「スキマぼうけん」。日々のスキマ時間を記録し、Googleスプレッドシートへの保存にも対応。",
+    "link": "https://sukima-bouken-natugasuki.netlify.app/"
+  },
+  {
+    "id": 45,
+    "title": "小5漢字 ゆうしゃクエスト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/4f46e5/ffffff?text=小5漢字+クエスト",
+    "description": "小学5年生向けのRPG風漢字学習冒険ゲーム。音読み・訓読みの修行でEXPをため、部首を発見したり仲間を増やしてボスバトルに挑むWebアプリ。",
+    "link": "https://kaleidoscopic-praline-080a9d.netlify.app/"
+  },
+  {
+    "id": 46,
+    "title": "小3漢字 ゆうしゃクエスト",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/f59e0b/ffffff?text=小3漢字+クエスト",
+    "description": "小学3年生向けのRPG風漢字学習冒険ゲーム。音読み・訓読みクイズでEXPをため、部首の秘密を学びながら仲間を増やして冒険を進めるWebアプリ。",
+    "link": "https://earnest-jalebi-ad86f0.netlify.app/"
   }
 ];
