@@ -127,11 +127,8 @@
     <div class="flex items-center gap-4">
         <div class="hidden md:flex gap-6">
             <a class="font-headline-md text-headline-md text-primary font-bold hover:text-on-surface-variant transition-colors" href="#gallery-grid">Gallery</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#profile">Profile</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="https://melodious-fenglisu-903963.netlify.app/" target="_blank" rel="noopener noreferrer">Profile</a>
             <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#contact-section">Contact</a>
-        </div>
-        <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline cursor-pointer active:scale-95 transition-transform">
-            <span class="material-symbols-outlined text-on-surface-variant">person</span>
         </div>
     </div>
 </header>
@@ -174,9 +171,9 @@
     <div id="profile" class="mt-24 border-t border-secondary-fixed pt-16 max-w-4xl mx-auto">
         <div class="text-center mb-12">
             <div class="inline-block p-0.5 rounded-full bg-surface-container-highest mb-6">
-                <div class="bg-white p-0.5 rounded-full">
+                <a href="https://melodious-fenglisu-903963.netlify.app/" target="_blank" rel="noopener noreferrer" class="block bg-white p-0.5 rounded-full hover:opacity-90 transition">
                     <img src="./profile.png" alt="若林朋凛" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover">
-                </div>
+                </a>
             </div>
             <h2 class="font-headline-lg text-headline-lg text-primary mb-1">若林 朋凛</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">挫折スタートから、教える側へ｜AI開発×講師</p>
@@ -204,6 +201,15 @@
                     <p class="font-body-md text-body-md text-on-surface-variant">お仕事のご依頼は下記の問い合わせからどうぞ。</p>
                 </div>
                 <p class="font-body-lg text-body-lg text-primary font-bold text-center pt-2">「難しそう」を「なんだできるじゃん」に変えるのが、私の仕事です。</p>
+            </div>
+
+            <!-- Profile Site Link Button -->
+            <div class="text-center mb-8">
+                <a href="https://melodious-fenglisu-903963.netlify.app/" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:opacity-80 transition">
+                    <span>詳しい自己紹介サイトを見る</span>
+                    <span class="material-symbols-outlined" style="font-size:18px;">open_in_new</span>
+                </a>
             </div>
 
             <!-- SNS Links -->
@@ -317,7 +323,7 @@
         <span class="material-symbols-outlined">explore</span>
         <span class="font-label-md text-label-md">Gallery</span>
     </a>
-    <a href="#profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+    <a href="https://melodious-fenglisu-903963.netlify.app/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90">
         <span class="material-symbols-outlined">person</span>
         <span class="font-label-md text-label-md">Profile</span>
     </a>
@@ -393,7 +399,7 @@
 </div>
 
 <!-- Data -->
-<script src="deliverables.js?v=20260919b"></script>
+<script src="deliverables.js?v=20260919d"></script>
 
 <script>
 const ADMIN_PASSWORD = "admin";

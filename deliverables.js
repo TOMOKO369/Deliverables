@@ -37,7 +37,7 @@ window.deliverablesData = [
     "category": "Webサイト",
     "image": "https://placehold.co/600x400/93c5fd/ffffff?text=Profile",
     "description": "クリエイターとしての経歴、スキルセット、実績をまとめた自己紹介ページ。",
-    "link": "./self-introduction/index.html"
+    "link": "https://melodious-fenglisu-903963.netlify.app/"
   },
 
   {
@@ -338,5 +338,13 @@ window.deliverablesData = [
     "image": "https://placehold.co/600x400/f59e0b/ffffff?text=小3漢字+クエスト",
     "description": "小学3年生向けのRPG風漢字学習冒険ゲーム。音読み・訓読みクイズでEXPをため、部首の秘密を学びながら仲間を増やして冒険を進めるWebアプリ。",
     "link": "https://earnest-jalebi-ad86f0.netlify.app/"
+  },
+  {
+    "id": 47,
+    "title": "メモ帳",
+    "category": "Webサイト",
+    "image": "https://placehold.co/600x400/10b981/ffffff?text=メモ帳",
+    "description": "日常のちょっとした気になったことをスマホやPCで手軽に記録できるメモ帳Webアプリ。マークダウン形式への変換やGoogleドキュメント保存機能付き。",
+    "link": "https://memocho-natugasuki.netlify.app/"
   }
 ];
